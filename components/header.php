@@ -9,7 +9,7 @@
         </button>
 
 
-        <div class="collapse navbar-collapse _bf_contenedor" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse _bf_contenedor d-flex justify-content-end" id="navbarSupportedContent">
             <ul class="navbar-nav mt-0">
 
                 <li class="nav-item active">

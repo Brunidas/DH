@@ -42,9 +42,11 @@ body{
 ._bf_contenedor{
     width: 320px;
     display: flex;
-    justify-content: right;
+    /* justify-content: right; */
     padding-right: 90px;
 }
+
+
 ._bf_contenedor li a ._bf_descripcion{
     display: none;
 }
