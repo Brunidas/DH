@@ -1,0 +1,95 @@
+
+
+body{
+    box-sizing: border-box;
+    font-family: "Arial";
+}
+
+
+
+/* FONDO */
+._bf_navbar{
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        color-stop(0, #612D82),
+        color-stop(1, #47A19F),
+        color-stop(1, #5D4287),
+        color-stop(1, #57598D),
+        color-stop(1, #526D92),
+        color-stop(1, #4C8A99)
+    );
+    background-image: -o-linear-gradient(right, #612D82 0%, #47A19F 100%, #5D4287 100%, #57598D 100%, #526D92 100%, #4C8A99 100%);
+    background-image: -moz-linear-gradient(right, #612D82 0%, #47A19F 100%, #5D4287 100%, #57598D 100%, #526D92 100%, #4C8A99 100%);
+    background-image: -webkit-linear-gradient(right, #612D82 0%, #47A19F 100%, #5D4287 100%, #57598D 100%, #526D92 100%, #4C8A99 100%);
+    background-image: -ms-linear-gradient(right, #612D82 0%, #47A19F 100%, #5D4287 100%, #57598D 100%, #526D92 100%, #4C8A99 100%);
+    background-image: linear-gradient(to right, #612D82 0%, #47A19F 100%, #5D4287 100%, #57598D 100%, #526D92 100%, #4C8A99 100%);
+
+
+    /* height: 85px; */
+}
+
+/* LOGO */
+._bf_logo-head{
+    margin: 0 100px;
+    height: 85px;
+}
+
+
+/* BOTONES */
+
+._bf_contenedor{
+    width: 320px;
+    display: flex;
+    justify-content: right;
+    padding-right: 90px;
+}
+._bf_contenedor li a ._bf_descripcion{
+    display: none;
+}
+
+._bf_contenedor li a ._bf_contenedor-img{
+    margin-left: 40px;
+}
+
+@media screen and (max-width: 767px) {
+    ._bf_contenedor{
+        display: flex;
+        justify-content: left;
+        margin: 10px 100px;
+    }
+    ._bf_contenedor li a ._bf_contenedor-img{
+        margin-left: 0px;
+    }
+    ._bf_contenedor li a{
+        display: flex;
+    }
+    ._bf_contenedor li a ._bf_descripcion{
+        display: block;
+    }
+
+
+    ._bf_contenedor li a ._bf_contenedor-img{
+        width: 50px;
+    }
+    ._bf_contenedor li a ._bf_descripcion{
+        text-decoration: none;
+        color: #fff;
+        padding-top:5px ;
+    }
+
+
+
+}
+
+@media screen and (max-width: 292px){
+    ._bf_contenedor{
+        display: flex;
+        justify-content: left;
+        margin: 10px 20px;
+    }
+}
+
+
+

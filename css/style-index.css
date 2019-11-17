@@ -7,10 +7,9 @@ body{
 }
 
 
-._bf_contenedor{
-    margin: 50px -15px;
+.container{
+    padding: 50px;
 }
-
 
 /*    BOTONES   */
 
@@ -41,33 +40,16 @@ body{
 }
 
 /*   REDES   */
-._bf_redes{
-    font-size: 30px;
-    color:#fff;
-    margin-bottom: 15px ;
+._bf_redes a img{
+    margin-left:15px ;
 }
-._bf_redes ._bf_ig:hover{
-    color:#04C2FF;
-}
-._bf_redes ._bf_fb:hover{
-    color:#04C2FF;
-}
-._bf_redes ._bf_tw:hover{
-    color:#04C2FF;
-}
-._bf_redes ._bf_in:hover{
-    color:#04C2FF;
-}
-
 
 /* CORREO */
-._bf_correo a{
-    font-size: 15px;
+._bf_correo{
+    color: #FFF;
     text-decoration: none;
-    color:#fff
 }
-._bf_correo a:hover{
+._bf_correo:hover{
+    color: #FFF;
     text-decoration: none;
-    color:#04C2FF;
 }
-
