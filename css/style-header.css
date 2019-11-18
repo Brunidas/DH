@@ -41,7 +41,7 @@ body{
 
 ._bf_contenedor{
     width: 320px;
-    display: flex;
+    /* display: flex; */
     /* justify-content: right; */
     padding-right: 90px;
 }
@@ -57,16 +57,20 @@ body{
 
 @media screen and (max-width: 767px) {
     ._bf_contenedor{
-        display: flex;
-        justify-content: left;
+        /* display: flex;
+        justify-content: left; */
         margin: 10px 100px;
     }
+
     ._bf_contenedor li a ._bf_contenedor-img{
         margin-left: 0px;
     }
+
     ._bf_contenedor li a{
         display: flex;
+        margin-bottom:5px ;
     }
+
     ._bf_contenedor li a ._bf_descripcion{
         display: block;
     }
@@ -75,12 +79,18 @@ body{
     ._bf_contenedor li a ._bf_contenedor-img{
         width: 50px;
     }
+
     ._bf_contenedor li a ._bf_descripcion{
         text-decoration: none;
         color: #fff;
         padding-top:5px ;
     }
 
+    ._bf_contenedor li a:hover{
+        padding: 0;
+        text-decoration: none;
+        color: #fff;
+    }
 
 
 }

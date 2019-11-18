@@ -9,13 +9,15 @@
         </button>
 
 
-        <div class="collapse navbar-collapse _bf_contenedor d-flex justify-content-end" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse _bf_contenedor d-flex justify-content-md-end" id="navbarSupportedContent">
             <ul class="navbar-nav mt-0">
 
                 <li class="nav-item active">
                     <a href="#">
                         <div class="_bf_contenedor-img">
                             <img src="img/icons/FAQ-icono.png" alt="">
+
+
                         </div>
 
                         <div class="_bf_descripcion">FAQ</div>
