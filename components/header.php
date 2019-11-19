@@ -1,62 +1,74 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark pt-0 pb-0 pl-0 _bf_navbar">
-        <a href="#">
-            <img class="_bf_logo-head" src="img/DHSALUD-logo-small.png">
-        </a>
+<header class="_bf_navbar">
 
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <div class="row">
+        <div class="col">
 
+            <a href="#" class="d-flex justify-content-center justify-content-md-start">
+                <img class="_bf_logo-head" src="img/DHSALUD-logo-small.png">
+            </a>
 
-        <div class="collapse navbar-collapse _bf_contenedor d-flex justify-content-md-end" id="navbarSupportedContent">
-            <ul class="navbar-nav mt-0">
+        </div>
 
-                <li class="nav-item active">
-                    <a href="#">
-                        <div class="_bf_contenedor-img">
-                            <img src="img/icons/FAQ-icono.png" alt="">
-
-
-                        </div>
-
-                        <div class="_bf_descripcion">FAQ</div>
+        <div class="col-0 col-md-6 d-flex justify-content-md-end">
+            <div class="_bf_botones">
+                <div href="#">
+                    <a>
+                        <img src="img/icons/FAQ-icono.png" alt="">
                     </a>
-                </li>
-
-                <li class="nav-item active">
-                    <a href="#">
-                        <div class="_bf_contenedor-img">
-                            <img src="img/icons/chat-icono.png" alt="">
-                        </div>
-
-                        <div class="_bf_descripcion">Chat</div>
+                </div>
+                <div href="#">
+                    <a>
+                        <img src="img/icons/chat-icono.png" alt="">
                     </a>
-                </li>
-
-                <li class="nav-item active">
-                    <a href="#">
-                        <div class="_bf_contenedor-img">
-                            <img src="img/icons/notificaciones-icono.png" alt="">
-                        </div>
-
-                        <div class="_bf_descripcion">Notificaciones</div>
+                </div>
+                <div href="#">
+                    <a>
+                        <img src="img/icons/notificaciones-icono.png" alt="">
                     </a>
-                </li>
-
-                <li class="nav-item active">
-                    <a href="#">
-                        <div class="_bf_contenedor-img">
-                            <img src="img/icons/usuario-icono.png" alt="">
-                        </div>
-
-                        <div class="_bf_descripcion">Usuario</div>
+                </div>
+                <div href="#">
+                    <a>
+                        <img src="img/icons/usuario-icono.png" alt="">
                     </a>
-                </li>
+                </div>
 
-            </ul>
+
+            </div>
         </div>
 
 
+    </div>
 
-    </nav>
+
+
+
+
+    <div class="d-flex justify-content-around d-md-none pt-3 pb-3">
+        <div href="#">
+            <a>
+                <img src="img/icons/FAQ-icono.png" alt="">
+            </a>
+        </div>
+        <div href="#">
+            <a>
+                <img src="img/icons/chat-icono.png" alt="">
+            </a>
+        </div>
+        <div href="#">
+            <a>
+                <img src="img/icons/notificaciones-icono.png" alt="">
+            </a>
+        </div>
+        <div href="#">
+            <a>
+                <img src="img/icons/usuario-icono.png" alt="">
+            </a>
+        </div>
+
+
+    </div>
+
+
+
+</header>

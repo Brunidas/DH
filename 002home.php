@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,9 +12,45 @@
     <?php include_once "components/header.php"; ?>
 
     <div class="container">
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum nemo doloribus, corporis voluptates neque debitis minima vel nisi commodi itaque id deserunt. Molestias fuga, saepe blanditiis excepturi sequi quis praesentium voluptate necessitatibus mollitia voluptatum nesciunt, beatae maxime assumenda autem, eius id possimus! Officiis recusandae nesciunt tenetur illo molestiae, minus ut?
-        </p>
+        <div class="_bf_titulos">
+            <h2>Cartilla de</h2>
+            <h1>Especialidades</h1>
+        </div>
+
+        <div class="_bf_especialidades">
+            <?php for($i=1;$i<=8;$i++): ?>
+
+                <div class="row">
+                    <div class="col d-flex justify-content-between">
+                        <button type="submit">
+                            Especialidad 1
+                        </button>
+                        <button type="submit">
+                            Especialidad 1
+                        </button>
+                        <button type="submit">
+                            Especialidad 1
+                        </button>
+                    </div>
+                </div>
+
+                <?php if ($i!=8): ?>
+                    <div class="row">
+                        <div class="_bf_espacioEntreBotonoes col">
+                        </div>
+                    </div>
+                <?php else: ?>
+                <?php endif ;?>
+
+
+            <?php endfor; ?>
+
+
+
+
+        </div>
+
+
     </div>
 
     <?php include_once "components/footer.php"; ?>
@@ -21,3 +58,4 @@
     <?php include_once "components/scripts.php"; ?>
 </body>
 </html>
+
