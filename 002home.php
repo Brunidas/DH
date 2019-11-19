@@ -1,3 +1,9 @@
+<?php
+
+    $cantidadEspecialidades = 23;
+?>
+
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -14,41 +20,29 @@
     <div class="container">
         <div class="_bf_titulos">
             <h2>Cartilla de</h2>
-            <h1>Especialidades</h1>
+            <h1 class="">Especialidades</h1>
         </div>
 
-        <div class="_bf_especialidades">
-            <?php for($i=1;$i<=8;$i++): ?>
 
-                <div class="row">
-                    <div class="col d-flex justify-content-between">
-                        <button type="submit">
-                            Especialidad 1
-                        </button>
-                        <button type="submit">
-                            Especialidad 1
-                        </button>
-                        <button type="submit">
-                            Especialidad 1
-                        </button>
-                    </div>
+
+        <div class="row d-flex flex-wrap justify-content-around">
+
+            <?php for($i=1;$i<=$cantidadEspecialidades;$i++): ?>
+
+                <div class="col-sm-6 col-md-5 col-lg-4 d-flex justify-content-center">
+                    <button class="_bf_especialidades" type="submit">
+                        Especialidad <?=$i;?>
+                    </button>
                 </div>
 
-                <?php if ($i!=8): ?>
-                    <div class="row">
-                        <div class="_bf_espacioEntreBotonoes col">
-                        </div>
-                    </div>
-                <?php else: ?>
-                <?php endif ;?>
 
 
             <?php endfor; ?>
 
 
-
-
         </div>
+
+
 
 
     </div>
