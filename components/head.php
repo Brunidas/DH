@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="css/style-header.css">
     <link rel="stylesheet" href="css/style-chrome-body.css">
     <link rel="stylesheet" href="css/style-chrome-footer.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+
 
 
     <title>DH Salud</title>
