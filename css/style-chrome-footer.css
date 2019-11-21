@@ -10,74 +10,28 @@ body{
     border-radius: 0;
 }
 
-
-
-
-
-
-._bf_footer{
-    padding: 0;
+._bf_logo-footer{
+    height: 85px;
 }
 
 
-/* LINKS */
-._bf_footer a{
-    color:#fff;
-    text-decoration: none;
-}
-._bf_footer a:hover{
-    color:#fff;
+
+
+
+._bf_footer ._bf_ubicacion a,
+._bf_footer ._bf_contacto a{
+    color: #fff;
     text-decoration: none;
 }
 
 
-/* COL */
-._bf_footer .row .col{
-    padding: 0;
-}
+/* ._bf_redes{
+    background:red;
+} */
 
-
-/* REDES */
-._bf_redes a img{
-    height: 21px;
-    margin: 25px 0;
-}
-
-._bf_redes a ._bf_espaciado-redes{
-    margin-right: 25px;
-}
-
-
-
-/* UBICACION */
-._bf_ubicacion{
-    display: block;
-    margin: 25px 0;
-}
-
-
-/* CORREO */
-._bf_correo{
-    display: block;
-    margin: 25px 0;
-}
-
-
-@media screen and (max-width: 767px) {
-    ._bf_datos-footer-horizontal{
-        display: none;
-    }
-}
-
-
-@media screen and (min-width: 767px) {
-    ._bf_datos-footer-vetical{
-        display: none;
+@media (max-width:768px){
+    ._bf_redes{
+        max-width: 250px;
     }
 
-    ._bf_ubicacion{
-        width: 200px;
-    }
 }
-
-

@@ -8,54 +8,43 @@ body{
 .container{
     max-width: 1000px;
     background-color: #fff;
-    padding: 60px;
 }
 
 
-._bf_titulos h1,._bf_titulos h2{
+._bf_titulos h1,
+._bf_titulos h2,
+._bf_titulos-mobile h1,
+._bf_titulos-mobile h2{
     color:rgba(97, 98, 99, .9);
 }
 
-._bf_titulos h2{
-    font-size: 30px;
-    margin-bottom:0 ;
-}
-._bf_titulos h1{
-    font-size: 60px;
-    margin-bottom:60px ;
-}
 
-._bf_especialidades{
-    background: #04C2FF;
-    border: 0px;
-    width: 230px;
-    height: 60px;
-    border-radius: 10px;
-    font-size: 20px;
-    color:#FFF;
-    margin-bottom: 20px;
+/* background: #04C2FF; */
+
+@media (min-width:768px){
+    ._bf_titulos-mobile{
+        display: none;
+    }
+
 }
 
 @media (max-width:768px){
-    ._bf_titulos h1{
-        font-size: 40px;
-        margin-bottom:40px ;
+    ._bf_titulos{
+        display: none;
     }
-    ._bf_especialidades{
-        background: #04C2FF;
-        border: 0px;
-        width: 180px;
-        height: 60px;
-        border-radius: 10px;
-        font-size: 20px;
-        color:#FFF;
-        margin-bottom: 20px;
-    }
-    .container{
-        max-width: 1000px;
-        background-color: #fff;
-        padding: 40px;
-    }
+
 }
+
+
+._bf_especialidad{
+    color: #fff;
+    font-size: 20px;
+    background: #04C2FF;
+    border: none;
+    border-radius: 10px;
+    width: 210px;
+
+}
+
 
 
