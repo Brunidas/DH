@@ -6,7 +6,7 @@
     <?php include_once 'components/header.php' ?>
     <div class="container">
 
-	  <div class="row">
+	  <div class="row pt-4">
    <div class="col-md 2 col-lg 2"></div>
     <div class="col-md-6 col-lg-6 ">
 

@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col">
 
-            <a href="#" class="d-flex justify-content-center justify-content-md-start">
+            <a href="002home.php" class="d-flex justify-content-center justify-content-md-start">
                 <img class="_bf_logo-head" src="img/DHSALUD-logo-small.png">
             </a>
 
@@ -12,23 +12,23 @@
 
         <div class="col-0 col-md-6 d-flex justify-content-md-end">
             <div class="_bf_botones">
-                <div href="#">
-                    <a>
+                <div >
+                    <a href="007faq.php">
                         <img src="img/icons/FAQ-icono.png" alt="">
                     </a>
                 </div>
-                <div href="#">
-                    <a>
+                <div >
+                    <a href="006contact.php">
                         <img src="img/icons/chat-icono.png" alt="">
                     </a>
                 </div>
-                <div href="#">
-                    <a>
+                <div >
+                    <a href="#">
                         <img src="img/icons/notificaciones-icono.png" alt="">
                     </a>
                 </div>
-                <div href="#">
-                    <a>
+                <div >
+                    <a href="004profile.php">
                         <img src="img/icons/usuario-icono.png" alt="">
                     </a>
                 </div>

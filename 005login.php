@@ -30,7 +30,7 @@
         </button>
         <br>
       </div>
-      <div class="container">
+      <div >
         <div class="row d-flex flex-wrap justify-content-around" "col-sm-8 col-md-7 col-lg-6 d-flex justify-content-center">
           <p> <input type="checkbox" name="seguirconectado" value="Seguir conectado">
             <label for="seguirconectado">Mantenerme conectado</label>
@@ -40,8 +40,9 @@
         </div>
       </div>
     </div>
-    <?php include_once "components/footer.php"; ?>
-    <?php include_once "components/scripts.php"; ?>
+ <?php include_once 'components/footer.php' ?>
+<?php include_once "components/scripts.php"; ?>
 </body>
+
 
 </html>

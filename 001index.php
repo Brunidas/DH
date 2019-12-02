@@ -22,28 +22,37 @@
     <div class="container">
 
 
-        <div class="row">
+        <div class="row d-none d-md-block d-lg-block">
             <div class="col d-flex justify-content-end">
-                <div class="_bf_botones ">
-                    <button class="_bf_boton _bf_iniciar-sesion">Iniciar Sesión</button>
-                    <button class="_bf_boton _bf_crear-cuenta">Crear Cuenta</button>
+                <div class="_bf_botones">
+                  <a href="005login.php" class="_bf_boton _bf_iniciar-sesion py-3 px-4 " style="text-decoration:none;color:white ">Iniciar sesión</a>
+                  <a href="003form.php" class="_bf_boton _bf_crear-cuenta py-3 px-4 " style="text-decoration:none;color:white">Crear cuenta</a>
+                    
+                    
                 </div>
-
-            </div>
+              </div>
         </div>
-
-        <div class="row">
-            <div class="col d-flex justify-content-center">
+        <section class="row d-none d-block d-sm-block d-md-none d-lg-none d-xl-none ">
+         <div class= "text-center">   
+         <a href="005login.php" class="btn btn-info px-3 mt-5" style="text-decoration:none;color:white">Iniciar sesión</a>
+        </div>
+        <div class= "text-center">
+        <a href="003form.php" class="btn btn-info  mt-4 px-4 " style="text-decoration:none;color:white">Regístrate</a>
+         </div>
+    </section>
+        
+    
+        <section>
+            <div class="col d-flex justify-content-center mx-1">
 
 
                 <img class="_bf_logo " src="img/DHSALUD-logo.png" alt="">
 
             </div>
-        </div>
+</section>
 
-
-        <div class="row">
-            <div class="col d-flex justify-content-end">
+ <section>
+            <div class="text-center">
 
                 <div class="_bf_redes">
                     <a href="#"><img src="img/icons/instagram.png" alt=""></a>
@@ -54,18 +63,18 @@
                 </div>
 
             </div>
-        </div>
+</section>
 
 
-        <div class="row">
-            <div class="col d-flex justify-content-end">
+        <section>
+            <div class="text-center pt-4">
                 <a  class="_bf_correo" href="#"><img src="img/icons/correo-icono.png" alt="">
-                    dhsalud@correomentira.com
+                    dhsalud@correo.com
                 </a>
 
 
             </div>
-        </div>
+</section>
 
 
     </div>
