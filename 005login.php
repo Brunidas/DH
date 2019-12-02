@@ -6,43 +6,57 @@
 <body>
 
   <?php include_once "components/header.php"; ?>
-
   <div class="container">
-    <div class="_bf_titulos">
-      <h2><img src="img/icons/usuario-icono.png" alt="" class="text-black-50"></h2>
-      <h1 class="_bf_titulos">Ingresar</h1>
+  <br>
+    <div class="_bf_titulos-mobile row mb-4 justify-content-center">
+      
+      <h1 class="">Ingresar</h1>
+    </div>
+    <div class="_bf_titulos ">
+    <h1 class="">Ingresar</h1>
     </div>
 
-    <div class="row d-flex flex-wrap justify-content-around">
+    <br>
+    <br>
 
-      <div class="col-sm-8 col-md-7 col-lg-6 d-flex justify-content-center"><span class="border border-white"></span>
-        <button class="_bf_login" type="submit">
+
+    <section class="">
+
+      <div class="text-center mb-4 pt-5">
+        
           <form class="btn btn-light" action="index.html" method="post">
-            <p><label for="correo">Correo electrónico</label>
-              <input type="email" name="correo" value="">
-            </p>
-            <p><label for="password">Contraseña</label>
-              <input type="password" name="password" value="">
-            </p>
-            <p><input type="submit" name="inicio" value="Iniciar sesión" class="btn btn-primary">
-            </p>
+          <div class="text-left ">
+            <label for="correo">Tu correo </label>
+              <input type="email" name="correo" value="" class="ml-4">
+              </div>
+            <div class="text-left mt-3">
+            <label for="password">Contraseña</label>
+              <input type="password" name="password" value="" class="ml-1" >
+              </div>
+              <br>
+              <small class="text-muted">¿Olvidó su contraseña?</small>
+              <div class="mt-3">
+            <input type="checkbox" name="seguirconectado" value="Seguir conectado"> 
+                    <label for="seguirconectado">Mantenerme conectado</label> </div>
+              <div>
+            <input type="submit" name="inicio" value="Iniciar sesión" class="btn btn-primary mt-3">
+            </div>
+            
           </form>
-        </button>
-        <br>
       </div>
-      <div >
-        <div class="row d-flex flex-wrap justify-content-around" "col-sm-8 col-md-7 col-lg-6 d-flex justify-content-center">
-          <p> <input type="checkbox" name="seguirconectado" value="Seguir conectado">
-            <label for="seguirconectado">Mantenerme conectado</label>
-          </p>
-          <p>Si olvidó su contraseña haga click aquí</p>
-
-        </div>
-      </div>
+       
+      </section>
+      <br>
+      <br>
+      <br>
+              
     </div>
- <?php include_once 'components/footer.php' ?>
+
+  
+<?php include_once 'components/footer.php' ?>
 <?php include_once "components/scripts.php"; ?>
 </body>
+
 
 
 </html>
