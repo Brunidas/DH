@@ -248,7 +248,7 @@ if ($_POST) {
 
 
 
-        <div class="row d-flex flex-wrap justify-content-around">
+        <div class="row d-flex flex-wrap justify-content-around mb-5">
             <form action="003form.php" method="POST">
 
                 <!-- nombre -->
@@ -432,7 +432,7 @@ if ($_POST) {
                 <input id="enviar" type="submit" value="Enviar">
 
 
-                <div class="">
+                <div class="mt-3">
                     <p>¿Ya eres usuario?</p>
                     <a href="">Click aqui</a>
                 </div>
