@@ -1,3 +1,16 @@
+<?php
+session_start();
+$arrayUsuarios = file_get_contents("usuarios.json");
+        $arrayUsuarios = explode(PHP_EOL, $arrayUsuarios);
+        array_pop($arrayUsuarios);
+        foreach($arrayUsuarios as $usuarioJson) {
+            $userFinal = json_decode($usuarioJson, true);}
+
+            //var_dump($userFinal);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <?php include_once 'components/head.php'; ?>
@@ -31,46 +44,35 @@
             </div>
             <br>
             <div class="col-sm-6 text-center">
-            <h4 style="color:#00b1b1;"><span> Nombre Completo</h4></span>
+            <h4 style="color:#00b1b1;"><span> <?php echo $userFinal['nombre']." ".$userFinal['apellido'] ?></h4></span>
 
             </div>
             <div class="clearfix"></div>
             <hr style="margin:5px 0 5px 0;">
 
 
-<div class="col-sm-5 col-xs-6 tital " >Documento:</div><div class="col-sm-7 ">22.987.654</div>
+<div class="col-sm-5 col-xs-6 tital ">Documento:</div><div class="col-sm-7 "><?php echo $userFinal['dni'] ?></div> 
      <div class="clearfix"></div>
 <div class="bot-border"></div>
 <div class="clearfix"></div>
 <div class="bot-border"></div>
 
-<div class="col-sm-5 col-xs-6 tital " >Teléfono:</div><div class="col-sm-7">2613456789</div>
+<div class="col-sm-5 col-xs-6 tital " >Celular:</div><div class="col-sm-7"><?php echo $userFinal['celular'] ?></div>
   <div class="clearfix"></div>
 <div class="bot-border"></div>
 
-<div class="col-sm-5 col-xs-6 tital " > E-mail:</div><div class="col-sm-7">dh@correo.com</div>
+<div class="col-sm-5 col-xs-6 tital " > E-mail:</div><div class="col-sm-7"><?php echo $userFinal['email'] ?></div>
 
   <div class="clearfix"></div>
 <div class="bot-border"></div>
 
-<div class="col-sm-5 col-xs-6 tital " >Obra social:</div><div class="col-sm-7">Swiss Medical</div>
+<div class="col-sm-5 col-xs-6 tital " >Obra social:</div><div class="col-sm-7"><?php echo $userFinal['obraSocial'] ?></div>
 
   <div class="clearfix"></div>
 <div class="bot-border"></div>
-<div class="col-sm-5 col-xs-6 tital " >N° Afiliado</div><div class="col-sm-7">128739823</div>
+<div class="col-sm-5 col-xs-6 tital " >Edad</div><div class="col-sm-7"><?php echo $userFinal['edad'] ?></div>
 
- <div class="clearfix"></div>
-<div class="bot-border"></div>
 
-<div class="col-sm-5 col-xs-6 tital " >Fecha de nacimiento:</div><div class="col-sm-7">10 de Marzo 1998</div>
-
- <div class="clearfix"></div>
-<div class="bot-border"></div>
-
-<div class="col-sm-5 col-xs-6 tital " >Nacionalidad:</div><div class="col-sm-7">Argentina</div>
-
- <div class="clearfix"></div>
-<div class="bot-border"></div>
           <!-- /.box-body -->
           </div>
           <!-- /.box -->

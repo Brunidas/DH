@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 $nombre = "";
 $apellido = "";
 $usuario = "";
@@ -180,21 +182,56 @@ if ($_POST) {
         }
 
         // contraseña
-        if (strlen($contrasenna) == 0 || strlen($rContrasenna) == 0) {
-            $errores["contrasenna"] = "Ninguna de las contraseñas puede quedar vacia";
-        } else {
-            $contrasenna = password_hash($contrasenna, PASSWORD_DEFAULT);
-            if (password_verify($rContrasenna, $contrasenna)) {
-                echo '$rContrasenna: ' . $rContrasenna . '<br>';
-                echo '$contrasenna: ' . $contrasenna . '<br>';
-            } else {
-                $errores["contrasenna"] = "Las contraseñas deben ser iguales";
-            }
+       if( isset($contrasenna) ) {
+        if( empty($contrasenna) ) {
+            $contrasenna = "Este campo debe completarse.";
         }
+        elseif( strlen($contrasenna) < 6 ) {
+            $errores['password'] = "Tu contraseña debe tener al menos 6 caracteres.";
+        }
+    }
+
+    if( isset($contrasenna) ) {
+        if( empty($contrasenna) ) {
+            $contrasenna = "Este campo debe completarse.";
+        }
+        elseif($contrasenna != $rContrasenna) {
+            $rContrasenna = "Tenés que ingresar la misma contraseña";
+        }
+    }
+
 
 
 
     }
+
+if($_POST) {
+       
+        //if(count($errores) === 0) { /// Datos que pasaan a la base de DATOS
+            // REGISTRO AL USUARIO
+            $usuarioFinal = [
+                'nombre' => trim($nombre),
+                'apellido' => $apellido,
+                'celular' =>  $celular,
+                //'obraSocial' =>$obrasSociales,
+                'usuario' =>  $usuario,
+                'email' =>  $email,
+                'dni' =>  $DNI,
+                'edad' =>  $edad,
+                'password' => password_hash($contrasenna, PASSWORD_DEFAULT)
+
+
+                ];
+            // ENVIAR A LA BASE DE DATOS $usuarioFinal
+            $jsonDeUsuario = json_encode($usuarioFinal);
+            file_put_contents('usuarios.json', $jsonDeUsuario . PHP_EOL, FILE_APPEND);
+            header("Location: 005login.php");// Lugar del sitio que pasa cuando se logea 
+            exit;
+        }
+   // }
+
+
+
 
 ?>
 
