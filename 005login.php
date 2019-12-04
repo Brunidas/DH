@@ -124,6 +124,9 @@ function armarArrayUsuario() {
               <!-- <small class="text-muted">¿Olvidó su contraseña?</small> --> 
            <div class="mt-3">
             <input type="checkbox" name="seguirconectado" value="Seguir conectado"> 
+            <label class="form-check-label" for="autoSizingCheck2">
+          Recordar usuario
+        </label> </div>
               <div>
             <input type="submit" name="" value="Iniciar sesión" class="btn btn-primary mt-3">
             </div>
