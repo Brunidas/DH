@@ -138,7 +138,7 @@ if ($_POST) {
             } else {
                 $direccion = filter_var($direccion, FILTER_SANITIZE_STRING);
                 echo 'dire$direccion: ' . $direccion . '<br>';
-            }
+            } // REVISAR ESTA VALIDACION para que incluya numeros
         }
 
         // localidad
@@ -146,7 +146,7 @@ if ($_POST) {
             $errores["localidad"] = "La localidad no puede quedar vacia";
         } else {
             if (!preg_match("/^[a-zA-Z ]*$/", $localidad)) {
-                $errores["localidad"] = "La localidad debe estar en un formato correcto";
+                $errores["localidad"] = "Por favor no utilizar comas, tildes, ni caracteres especiales"; // por favor no utilizar acentos ni comas
             } else {
                 $localidad = filter_var($localidad, FILTER_SANITIZE_STRING);
                 echo 'dire$localidad: ' . $localidad . '<br>';
@@ -206,7 +206,7 @@ if ($_POST) {
     }
 
 if($_POST) {
-       
+
         //if(count($errores) === 0) { /// Datos que pasaan a la base de DATOS
             // REGISTRO AL USUARIO
             $usuarioFinal = [
@@ -222,10 +222,24 @@ if($_POST) {
 
 
                 ];
+
+                if($_FILES) {
+                if($_FILES["imagen"]["error"]!=0){
+                  echo "Hubo un error al cargar la imagen <br>";
+                } else{
+                  $ext=strtolower(pathinfo($_FILES["imagen"]["name"], PATHINFO_EXTENSION));
+                  if ($ext!="jpg" && $ext!="jpeg" && $ext!="png"){
+                    echo "La imagen debe ser jpg, jpeg o png <br>";
+                  } else{
+                    move_uploaded_file($_FILES["imagen"]["tmp_name"],"archivos/".$usuario."." .$ext);
+                  }
+                }
+                }
+
             // ENVIAR A LA BASE DE DATOS $usuarioFinal
             $jsonDeUsuario = json_encode($usuarioFinal);
             file_put_contents('usuarios.json', $jsonDeUsuario . PHP_EOL, FILE_APPEND);
-            header("Location: 005login.php");// Lugar del sitio que pasa cuando se logea 
+            header("Location: 005login.php");// Lugar del sitio que pasa cuando se logea
             exit;
         }
    // }
@@ -286,7 +300,7 @@ if($_POST) {
 
 
         <div class="row d-flex flex-wrap justify-content-around mb-5">
-            <form action="003form.php" method="POST">
+            <form action="003form.php" method="POST" enctype="multipart/form-data">
 
                 <!-- nombre -->
                 <input id="nombre" type="text" name="nombre" placeholder="Nombre" value="<?= $nombre ?>">
@@ -341,7 +355,6 @@ if($_POST) {
                 <?php endif; ?>
                 <p></p>
 
-
                 <!-- DNI -->
                 <input id="DNI" type="text" name="DNI" placeholder="DNI" value="<?= $DNI ?>">
                 <?php if ($errores["DNI"] != "") : ?>
@@ -373,8 +386,6 @@ if($_POST) {
 
                 </select>
                 <p></p>
-
-
 
                 <!-- Direccion -->
                 <input id="direccion" type="text" name="direccion" placeholder="Direccion" value="<?= $direccion ?>">
@@ -449,7 +460,6 @@ if($_POST) {
                 <?php endif; ?>
                 <p></p>
 
-
                 <!-- Contraseña -->
                 <input type="password" id="contrasenna" name="contrasenna" placeholder="Contraseña">
                 <input id="rContrasenna" type="password" name="rContrasenna" placeholder="Repetir Contraseña">
@@ -464,6 +474,11 @@ if($_POST) {
                     </div>
                 <?php endif; ?>
                 <p></p>
+
+                <!-- Imagen -->
+                <label for="">Imagen de perfil</label>
+                <input type="file" name="imagen" value="">
+
 
 
                 <input id="enviar" type="submit" value="Enviar">
