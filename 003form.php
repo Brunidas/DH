@@ -137,7 +137,7 @@ if ($_POST) {
                 $errores["direccion"] = "La direccion debe estar en un formato correcto";
             } else {
                 $direccion = filter_var($direccion, FILTER_SANITIZE_STRING);
-                echo 'dire$direccion: ' . $direccion . '<br>';
+                echo 'Direccion: ' . $direccion . '<br>';
             } // REVISAR ESTA VALIDACION para que incluya numeros
         }
 
@@ -207,7 +207,7 @@ if ($_POST) {
 
 if($_POST) {
 
-        //if(count($errores) === 0) { /// Datos que pasaan a la base de DATOS
+        if(count($errores) === 0) { /// Datos que pasaan a la base de DATOS
             // REGISTRO AL USUARIO
             $usuarioFinal = [
                 'nombre' => trim($nombre),
@@ -242,6 +242,7 @@ if($_POST) {
             header("Location: 005login.php");// Lugar del sitio que pasa cuando se logea
             exit;
         }
+         }
    // }
 
 
