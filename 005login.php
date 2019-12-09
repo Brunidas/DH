@@ -126,7 +126,7 @@
 
 
         <div class="row d-flex justify-content-center">
-            <form class="_bf_form col-12 m-3 " action="005login.php" method="post">
+            <form class="_bf_form col-12  m-3" action="005login.php" method="post">
 
                 <div class="col-12 d-flex justify-content-center mt-5  mb-2 ">
                     <input class="_bf_input pt-1 pb-1 pl-3 pr-3 w-100" type="email" name="email" placeholder="Tu correo">
@@ -151,14 +151,6 @@
                 </div>
 
 
-                <div class="_bf_nuevoEnDhs col-12 d-flex justify-content-center mb-5">
-                    ¿Nuevo en DH Salud? <a class="ml-1" href="003form.php">Crear cuenta</a>
-                </div>
-
-
-
-            </form>
-
 
 
 
@@ -169,10 +161,25 @@
                     <!-- <img id="check-square"src="img/icons/check-square.png" alt="">
                     <img id="square" src="img/icons/square.png" alt=""> -->
                     Recordar usuario
-                </label>
-            </div>
+                    </label>
+                </div>
+
+                <hr>
+
+
+
+                <div class="_bf_textoDebajoBoton col-12 d-flex justify-content-center mb-5">
+                    ¿Nuevo en DH Salud? <a class="ml-1" href="003form.php">Crear cuenta</a>
+                </div>
+            </form>
 
         </div>
+
+
+
+
+
+
 
 
 

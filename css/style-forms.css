@@ -9,9 +9,10 @@ body{
 }
 
 ._bf_form{
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.4);
     border-radius: 10px;
     max-width: 350px;
+    margin-bottom: 50px;
 }
 
 ._bf_form ._bf_input{
@@ -42,13 +43,17 @@ body{
 
 
 
-._bf_nuevoEnDhs{
+
+._bf_textoDebajoBoton{
     color: #fff;
     font-size: 13px;
 }
-._bf_nuevoEnDhs a{
+._bf_textoDebajoBoton a{
     color: #fff;
 }
+
+
+
 
 
 
@@ -67,5 +72,25 @@ input[type="checkbox"]{
 }
 
 ._bf_titulo{
+    color: #fff;
+}
+
+
+.error{
+    font-weight: bold;
+    color: red;
+}
+
+
+._bf_colorBlanco{
+    color: #fff;
+}
+
+
+
+._bf_form ._bf_enviarFomulario{
+    background: #DB7F67;
+    border:0;
+    border-radius: 10px;
     color: #fff;
 }
