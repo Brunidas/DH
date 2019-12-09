@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
     session_start();
 
 
@@ -82,7 +82,7 @@
 
 
 ?>
-
+ -->
 
 
 
@@ -116,7 +116,9 @@
 
 
             <div class="col-12 mt-3 d-flex justify-content-center">
-                <h1 class="_bf_titulo display-4">Ingresar</h1>
+                <h2 class="_bf_titulo h1 d-sm-none">Ingresar</h2>
+                <h2 class="_bf_titulo display-4 d-none d-sm-block">Ingresar</h2>
+
             </div>
 
         </div>
@@ -127,22 +129,23 @@
             <form class="_bf_form col-12 m-3 " action="005login.php" method="post">
 
                 <div class="col-12 d-flex justify-content-center mt-5  mb-2 ">
-                    <input class="_bf_input pt-1 pb-1 pl-3 pr-3 w-75" type="email" name="email" placeholder="Tu correo">
+                    <input class="_bf_input pt-1 pb-1 pl-3 pr-3 w-100" type="email" name="email" placeholder="Tu correo">
                 </div>
 
                 <div class="col-12 d-flex justify-content-center">
-                    <input class="_bf_input pt-1 pb-1 pl-3 pr-3 w-75" type="password" name="password" name="password" placeholder="Contraseña">
+                    <input class="_bf_input pt-1 pb-1 pl-3 pr-3 w-100 " type="password" name="password" name="password" placeholder="Contraseña">
 
                 </div>
 
                 <div class="_bf_contrasennaOlvidada col-12 d-flex justify-content-center mb-4">
-                    ¿Contraseña olivada? <a class="ml-1" href="#"> Click aquí</a>
+                    ¿Contraseña olivada?
+                    <a class="ml-1" href="#"> Click aquí</a>
                 </div>
 
 
                 <!-- mt-4 mb-5 -->
                 <div class="col-12 d-flex justify-content-center mt-4">
-                    <button type="submit" name="" value="" class="_bf_iniciarSesion pt-1 pb-1 pl-3 pr-3 w-75">
+                    <button type="submit" name="" value="" class="_bf_iniciarSesion pt-1 pb-1 pl-3 pr-3 w-100">
                         Iniciar sesión
                     </button>
                 </div>
@@ -159,10 +162,10 @@
 
 
 
-            <div id="_bf_recordarUsuario" class="_bf_recordarUsuario col-12">
-                <input class="_bf_checkbox" type="checkbox"  id="seguirconectado" value="conectado">
+                <div class="_bf_recordarUsuario col-12">
+                    <input class="_bf_checkbox" type="checkbox"  id="seguirconectado" value="conectado">
 
-                <label class="_bf_checkbox-label" for="seguirconectado">
+                    <label class="_bf_checkbox-label" for="seguirconectado">
                     <!-- <img id="check-square"src="img/icons/check-square.png" alt="">
                     <img id="square" src="img/icons/square.png" alt=""> -->
                     Recordar usuario
