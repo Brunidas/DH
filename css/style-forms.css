@@ -1,0 +1,71 @@
+/*    -escritorio   */
+body{
+    background-image: url("../img/fondoIndexm.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+    box-sizing: border-box;
+}
+
+._bf_form{
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    max-width: 400px;
+}
+
+._bf_form ._bf_input{
+    background: #fff;
+    border:0;
+    border-radius: 10px;
+}
+
+
+._bf_form ._bf_iniciarSesion{
+    background: #04C2FF;
+    border:0;
+    border-radius: 10px;
+    color: #fff;
+}
+
+
+
+
+
+._bf_contrasennaOlvidada{
+    color: #fff;
+    font-size: 13px;
+}
+._bf_contrasennaOlvidada a{
+    color: #fff;
+}
+
+
+
+._bf_nuevoEnDhs{
+    color: #fff;
+    font-size: 13px;
+}
+._bf_nuevoEnDhs a{
+    color: #fff;
+}
+
+
+
+._bf_recordarUsuario{
+    color:#fff;
+    max-width: 400px;
+
+}
+
+input[type="checkbox"]{
+    /* display: none; */
+}
+
+._bf_checkbox-label img{
+    width: 15px;
+}
+
+._bf_titulo{
+    color: #fff;
+}

@@ -1,150 +1,191 @@
 <?php
-session_start();
+    session_start();
 
 
-$arrayDeErrores = [];
+    $arrayDeErrores = [];
 
-if($_POST) {
-    $arrayDeErrores = validarRegistracion($_POST);
-    if(count($arrayDeErrores) === 0) {
-        $arrayUsuarios = file_get_contents("usuarios.json");
-        $arrayUsuarios = explode(PHP_EOL, $arrayUsuarios);
-        array_pop($arrayUsuarios);
-        foreach($arrayUsuarios as $usuarioJson) {
-            $userFinal = json_decode($usuarioJson, true);
-            if($_POST['email'] == $userFinal['email']) {
-                if(password_verify($_POST['password'], $userFinal['password'])) {   
-                  //echo " Usuario. ".$usarFinal["nombre"]
-                    // Crearle una sesion
-                    $_SESSION['email'] = $userFinal['email'];
-                    if(isset($_POST['recordarme']) && $_POST['recordarme'] == "on") {
-                        // Unix time
-                        setcookie('userEmail', $userFinal['email'], time() + 60 * 60 * 24 * 7);
-                        setcookie('userPass', $userFinal['password'], time() + 60 * 60 * 24 * 7);
+    if ($_POST) {
+        $arrayDeErrores = validarRegistracion($_POST);
+        if (count($arrayDeErrores) === 0) {
+            $arrayUsuarios = file_get_contents("usuarios.json");
+            $arrayUsuarios = explode(PHP_EOL, $arrayUsuarios);
+            array_pop($arrayUsuarios);
+            foreach ($arrayUsuarios as $usuarioJson) {
+                $userFinal = json_decode($usuarioJson, true);
+                if ($_POST['email'] == $userFinal['email']) {
+                    if (password_verify($_POST['password'], $userFinal['password'])) {
+                        //echo " Usuario. ".$usarFinal["nombre"]
+                        // Crearle una sesion
+                        $_SESSION['email'] = $userFinal['email'];
+                        if (isset($_POST['recordarme']) && $_POST['recordarme'] == "on") {
+                            // Unix time
+                            setcookie('userEmail', $userFinal['email'], time() + 60 * 60 * 24 * 7);
+                            setcookie('userPass', $userFinal['password'], time() + 60 * 60 * 24 * 7);
+                        }
+
+                        //echo $Usuario;
+                        header("Location: 004profile.php");
+                        exit;
                     }
-                   
-                    //echo $Usuario;
-                    header("Location: 004profile.php");
-                    exit;
                 }
             }
         }
     }
-}
 
-function validarRegistracion($unArray) {
+    function validarRegistracion($unArray)
+    {
 
-    $errores = [];
+        $errores = [];
 
-    // Validamos campo "nombre"
-    if( isset($unArray['nombre']) ) {
-        if( empty($unArray['nombre']) ) {
-            $errores['nombre'] = "Este campo debe completarse.";
+        // Validamos campo "nombre"
+        if (isset($unArray['nombre'])) {
+            if (empty($unArray['nombre'])) {
+                $errores['nombre'] = "Este campo debe completarse.";
+            } elseif (strlen($unArray['nombre']) < 2) {
+                $errores['nombre'] = "Tu nombre debe tener al menos 2 caracteres.";
+            }
         }
-        elseif( strlen($unArray['nombre']) < 2 ) {
-            $errores['nombre'] = "Tu nombre debe tener al menos 2 caracteres.";
+
+        // Validamos campo "email"
+        if (isset($unArray['email'])) {
+            if (empty($unArray['email'])) {
+                $errores['email'] = "Este campo debe completarse.";
+            } elseif (!filter_var($unArray['email'], FILTER_VALIDATE_EMAIL)) {
+                $errores['email'] = "Debés ingresar un email válido.";
+            }
+        }
+
+        if (isset($unArray['password'])) {
+            if (empty($unArray['password'])) {
+                $errores['password'] = "Este campo debe completarse.";
+            } elseif (strlen($unArray['password']) < 6) {
+                $errores['password'] = "Tu contraseña debe tener al menos 6 caracteres.";
+            }
+        }
+
+        return $errores;
+    }
+
+    function persistirDato($arrayE, $campo)
+    {
+        if (isset($arrayE[$campo])) {
+            return "";
+        } else {
+            if (isset($_POST[$campo])) {
+                return $_POST[$campo];
+            }
         }
     }
 
-    // Validamos campo "email"
-    if( isset($unArray['email']) ) {
-        if( empty($unArray['email']) ) {
-            $errores['email'] = "Este campo debe completarse.";
-        }
-        elseif( !filter_var($unArray['email'], FILTER_VALIDATE_EMAIL) ) {
-            $errores['email'] = "Debés ingresar un email válido.";
-        }
-    }
-
-    if( isset($unArray['password']) ) {
-        if( empty($unArray['password']) ) {
-            $errores['password'] = "Este campo debe completarse.";
-        }
-        elseif( strlen($unArray['password']) < 6 ) {
-            $errores['password'] = "Tu contraseña debe tener al menos 6 caracteres.";
-        }
-    }
-
-    return $errores;
-}
-
-function persistirDato($arrayE, $campo) {
-    if( isset($arrayE[$campo]) ) {
-        return "";
-    } else {
-        if(isset($_POST[$campo])) {
-            return $_POST[$campo];
-        }
-    }
-}
-
-function armarArrayUsuario() {
-
-}
+    function armarArrayUsuario()
+    { }
 
 
 ?>
 
-<!DOCTYPE html>
-<html lang="es">
 
-<?php include_once "components/head.php"; ?>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="css/style-forms.css">
+
+    <title>DH Salud</title>
+</head>
 
 <body>
-
-  <?php include_once "components/header.php"; ?>
-  <div class="container">
-  <br>
-    <div class="_bf_titulos-mobile row mb-4 justify-content-center">
-      
-      <h1 class="">Ingresar</h1>
-    </div>
-    <div class="_bf_titulos ">
-    <h1 class="">Ingresar</h1>
-    </div>
-
-    <br>
-    <br>
+    <div class="container">
 
 
-    <section class="">
+        <div class="row">
 
-      <div class="text-center mb-4 pt-5">
-        
-          <form class="btn btn-light" action="" method="post">
-          <div class="text-left ">
-            <label for="email">Tu correo </label>
-              <input type="email" value="" class="ml-4" id="email" name="email">
-              </div>
-            <div class="text-left mt-3">
-            <label for="password">Contraseña</label>
-              <input type="password" name="password" value="" class="ml-1" id="password" name="password" >
-              </div>
-              <br>
-              <!-- <small class="text-muted">¿Olvidó su contraseña?</small> --> 
-           <div class="mt-3">
-            <input type="checkbox" name="seguirconectado" value="Seguir conectado"> 
-            <label class="form-check-label" for="autoSizingCheck2">
-          Recordar usuario
-        </label> </div>
-              <div>
-            <input type="submit" name="" value="Iniciar sesión" class="btn btn-primary mt-3">
+            <div class="col-12">
+                <img class="mt-3 rounded mx-auto d-block" src="img/DHSALUD-logo-small.png" alt="">
             </div>
-            
-          </form>
-      </div>
-       
-      </section>
-      <br>
-      <br>
-      <br>
-              
+
+
+            <div class="col-12 mt-3 d-flex justify-content-center">
+                <h1 class="_bf_titulo display-4">Ingresar</h1>
+            </div>
+
+        </div>
+
+
+
+        <div class="row d-flex justify-content-center">
+            <form class="_bf_form col-12 m-3 " action="005login.php" method="post">
+
+                <div class="col-12 d-flex justify-content-center mt-5  mb-2 ">
+                    <input class="_bf_input pt-1 pb-1 pl-3 pr-3 w-75" type="email" name="email" placeholder="Tu correo">
+                </div>
+
+                <div class="col-12 d-flex justify-content-center">
+                    <input class="_bf_input pt-1 pb-1 pl-3 pr-3 w-75" type="password" name="password" name="password" placeholder="Contraseña">
+
+                </div>
+
+                <div class="_bf_contrasennaOlvidada col-12 d-flex justify-content-center mb-4">
+                    ¿Contraseña olivada? <a class="ml-1" href="#"> Click aquí</a>
+                </div>
+
+
+                <!-- mt-4 mb-5 -->
+                <div class="col-12 d-flex justify-content-center mt-4">
+                    <button type="submit" name="" value="" class="_bf_iniciarSesion pt-1 pb-1 pl-3 pr-3 w-75">
+                        Iniciar sesión
+                    </button>
+                </div>
+
+
+                <div class="_bf_nuevoEnDhs col-12 d-flex justify-content-center mb-5">
+                    ¿Nuevo en DH Salud? <a class="ml-1" href="003form.php">Crear cuenta</a>
+                </div>
+
+
+
+            </form>
+
+
+
+
+            <div id="_bf_recordarUsuario" class="_bf_recordarUsuario col-12">
+                <input class="_bf_checkbox" type="checkbox"  id="seguirconectado" value="conectado">
+
+                <label class="_bf_checkbox-label" for="seguirconectado">
+                    <!-- <img id="check-square"src="img/icons/check-square.png" alt="">
+                    <img id="square" src="img/icons/square.png" alt=""> -->
+                    Recordar usuario
+                </label>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
     </div>
 
-  
-<?php include_once 'components/footer.php' ?>
-<?php include_once "components/scripts.php"; ?>
+
+
+
+
+    <?php include_once "components/scripts.php"; ?>
 </body>
+
 
 
 
