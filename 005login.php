@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
     session_start();
 
 
@@ -82,7 +82,7 @@
 
 
 ?>
- -->
+
 
 
 
@@ -111,7 +111,9 @@
         <div class="row">
 
             <div class="col-12">
-                <img class="mt-3 rounded mx-auto d-block" src="img/DHSALUD-logo-small.png" alt="">
+                <a href="001index.php">
+                    <img class="mt-3 rounded mx-auto d-block" src="img/DHSALUD-logo-small.png" alt="">
+                </a>
             </div>
 
 

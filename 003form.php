@@ -1,6 +1,8 @@
 <?php
 
-    session_start();
+    // session_start();
+    
+    
     $nombre = "";
     $apellido = "";
     $usuario = "";
@@ -23,8 +25,9 @@
         "ss" => "Sancor Salud",
         "na" => "Ninguna"
     ];
-
-
+    
+    $datosCorrectos=true;
+    
     $errores = [
         "nombre" => "",
         "apellido" => "",
@@ -40,9 +43,31 @@
         "contrasenna" => ""
     ];
 
-    // validacion del formulario
-    if ($_POST) {
+    //contiene el array de datos correctos y de los errores
+    $erroresYDatosCorrectos=[
+        $datosCorrectos,
+        $errores
+    ];  
 
+    // validacion del formulario
+    if ($_POST) {        
+        $nombre = $_POST["nombre"];
+        $apellido = $_POST["apellido"];
+        $usuario = $_POST["usuario"];
+        $edad = $_POST["edad"];
+        $DNI = $_POST["DNI"];
+        $sexo = $_POST["sexo"];
+        $direccion = $_POST["direccion"];
+        $localidad = $_POST["localidad"];
+        $celular = $_POST["celular"];
+        $obraSocial = $_POST["obraSocial"];
+        $email = $_POST["email"];
+        $contrasenna = $_POST["contrasenna"];
+        $rContrasenna = $_POST["rContrasenna"];
+
+
+
+        function validacionDatos($datosCorrectos, $errores){
             // variables
             $nombre = $_POST["nombre"];
             $apellido = $_POST["apellido"];
@@ -53,201 +78,199 @@
             $localidad = $_POST["localidad"];
             $celular = $_POST["celular"];
             $email = $_POST["email"];
-
             $contrasenna = $_POST["contrasenna"];
             $rContrasenna = $_POST["rContrasenna"];
 
-            $cont = 0;
-
+        
             // nombre
             if (strlen($nombre) == 0) {
+                $datosCorrectos = false;
                 $errores["nombre"] = "El nombre no puede quedar vacio";
             } else {
-                if (!preg_match("/^[a-zA-Z ]*$/", $nombre)) {
-                    $errores["nombre"] = "El nombre debe estar en un formato correcto";
-                } else {
-                    $nombre = filter_var($nombre, FILTER_SANITIZE_STRING);
-                    $cont++;
-                    echo 'Nombre: ' . $nombre . '<br>';
-                }
+                $nombre = filter_var($nombre, FILTER_SANITIZE_STRING);
             }
 
             // apellido
             if (strlen($apellido) == 0) {
+                $datosCorrectos = false;
                 $errores["apellido"] = "El apellido no puede quedar vacio";
             } else {
-                if (!preg_match("/^[a-zA-Z ]*$/", $apellido)) {
-                    $errores["apellido"] = "El apellido debe estar en un formato correcto";
-                } else {
-                    $apellido = filter_var($apellido, FILTER_SANITIZE_STRING);
-                    echo 'apellido: ' . $apellido . '<br>';
-                }
+                $apellido = filter_var($apellido, FILTER_SANITIZE_STRING);
+
             }
 
             // usuario
             if (strlen($usuario) == 0) {
+                $datosCorrectos = false;
                 $errores["usuario"] = "El usuario no puede quedar vacio";
             } else {
                 if (!preg_match("/^[a-zA-Z ]*$/", $usuario)) {
-                    $errores["usuario"] = "En el usuario solo se puede usar texto";
+                    $datosCorrectos = false;
+                    $errores["usuario"] = "Solo se puede usar texto";
                 } else {
                     $usuario = filter_var($usuario, FILTER_SANITIZE_STRING);
-                    echo 'usuario: ' . $usuario . '<br>';
                 }
             }
 
+
             // edad
             if (strlen($edad) == 0) {
+                $datosCorrectos = false;
                 $errores["edad"] = "La edad no puede quedar vacia";
             } else {
                 if (is_numeric($edad)) {
                     if ($edad < 0) {
+                        $datosCorrectos = false;
                         $errores["edad"] = "La edad no puede ser menor a cero";
                     } else {
                         $edad = filter_var($edad, FILTER_SANITIZE_STRING);
-                        echo 'Edad: ' . $edad . '<br>';
                     }
                 } else {
+                    $datosCorrectos = false;                    
                     $errores["edad"] = "La edad deber ser un numero";
                 }
             }
 
+
+
             // D.N.I.
             if (strlen($DNI) == 0) {
+                $datosCorrectos = false;
                 $errores["DNI"] = "El DNI no puede quedar vacio";
             } else {
                 if (is_numeric($DNI)) {
-                    if ($DNI < 0) {
+                    if ($DNI < 0 ) {
+                        $datosCorrectos = false;
                         $errores["DNI"] = "El DNI no puede ser menor a cero";
                     } else {
                         $DNI = filter_var($DNI, FILTER_SANITIZE_STRING);
-                        echo 'DNI :' . $DNI . '<br>';
                     }
                 } else {
+                    $datosCorrectos = false;
                     $errores["DNI"] = "El DNI deber ser un numero";
                 }
             }
 
 
+
             // direccion
             if (strlen($direccion) == 0) {
+                $datosCorrectos = false;
                 $errores["direccion"] = "La direccion no puede quedar vacia";
             } else {
-                if (!preg_match("/^[a-zA-Z ]*$/", $direccion)) {
-                    $errores["direccion"] = "La direccion debe estar en un formato correcto";
-                } else {
-                    $direccion = filter_var($direccion, FILTER_SANITIZE_STRING);
-                    echo 'Direccion: ' . $direccion . '<br>';
-                } // REVISAR ESTA VALIDACION para que incluya numeros
+                $direccion = filter_var($direccion, FILTER_SANITIZE_STRING);
             }
+
 
             // localidad
             if (strlen($localidad) == 0) {
+                $datosCorrectos = false;
                 $errores["localidad"] = "La localidad no puede quedar vacia";
             } else {
-                if (!preg_match("/^[a-zA-Z ]*$/", $localidad)) {
-                    $errores["localidad"] = "Por favor no utilizar comas, tildes, ni caracteres especiales"; // por favor no utilizar acentos ni comas
-                } else {
-                    $localidad = filter_var($localidad, FILTER_SANITIZE_STRING);
-                    echo 'dire$localidad: ' . $localidad . '<br>';
-                }
+                $localidad = filter_var($localidad, FILTER_SANITIZE_STRING);
             }
 
             // celular
             if (strlen($celular) == 0) {
+                $datosCorrectos = false;
                 $errores["celular"] = "El número de celular no puede quedar vacio";
             } else {
                 if (is_numeric($celular)) {
                     if (strlen($celular) != 10) {
+                        $datosCorrectos = false;
                         $errores["celular"] = "El número debe tener exactamente 10 digitos";
                     } else {
                         $celular = filter_var($celular, FILTER_SANITIZE_STRING);
-                        echo 'Cel :' . $celular . '<br>';
+
                     }
                 } else {
+                    $datosCorrectos = false;
                     $errores["celular"] = "El número de celular debe ser un numero";
                 }
             }
 
+
             // email
             if (strlen($email) == 0) {
+                $datosCorrectos = false;
                 $errores["email"] = "El email no puede quedar vacio";
             } else {
-
-                if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                    echo 'email: ' . $email . '<br>';
-                } else {
-                    $errores["email"] = "El email debe estar en un formato correcto";
-                }
+                $email = filter_var($email, FILTER_VALIDATE_EMAIL);
             }
-
+         
             // contraseña
             if( isset($contrasenna) ) {
                 if( empty($contrasenna) ) {
-                    $contrasenna = "Este campo debe completarse.";
-                }
-                elseif( strlen($contrasenna) < 6 ) {
-                    $errores['password'] = "Tu contraseña debe tener al menos 6 caracteres.";
+                    $errores['contrasenna'] = "La contraseña no puede quedar vacia.";
+                    $datosCorrectos = false;
+                }else {
+                    if( strlen($contrasenna) < 6 ){
+                        $datosCorrectos = false;
+                        $errores['contrasenna'] = "Tu contraseña debe tener al menos 6 caracteres.";
+                    }else{
+                        if($contrasenna != $rContrasenna){
+                            $datosCorrectos = false;
+                            $errores['contrasenna'] = "Tienes que ingresar la misma contraseña";
+                        }else{
+                        }
+                    }
                 }
             }
 
-            if( isset($contrasenna) ) {
-                if( empty($contrasenna) ) {
-                    $contrasenna = "Este campo debe completarse.";
-                }
-                elseif($contrasenna != $rContrasenna) {
-                    $rContrasenna = "Tenés que ingresar la misma contraseña";
-                }
-            }
 
 
-
-
+            //retorna un array nomrmal
+            return array($datosCorrectos, $errores) ;
         }
 
+       
+        $erroresYDatosCorrectos = validacionDatos($datosCorrectos, $errores) ;
 
-    if($_POST) {
+        // guardar usuario
+        if( $erroresYDatosCorrectos[0] ){
+            // echo "Los datos se pueden guardar :D <br>";
+            // echo 'Nombre: ' . $nombre . '<br>';
+            // echo 'Apellido: ' . $apellido . '<br>';
+            // echo 'Usuario: ' . $usuario . '<br>';
+            // echo 'Edad: ' . $edad . '<br>';
+            // echo 'DNI: ' . $DNI . '<br>';
+            // echo 'Sexo: ' . $sexo . '<br>';
+            // echo 'Direccion: ' . $direccion . '<br>';
+            // echo 'Localidad: ' . $localidad . '<br>';
+            // echo 'ObraSociales: ' . $obraSocial. '<br>';
+            // echo 'Email: ' . $email . '<br>';
+            // echo 'Contraseña: ' . $contrasenna . '<br>';
+            
+            $usuario=[
+                "nombre"=>$nombre,
+                "apellido"=>$apellido,
+                "usuario"=>$usuario,
+                'edad'=>$edad,
+                'DNI'=> $DNI,
+                'sexo'=>$sexo,
+                'direccion'=>$direccion,
+                'localidad'=>$localidad,
+                'obraSocial'=>$obraSocial,
+                'email'=>$email,
+                'contrasenna'=>password_hash($contrasenna, PASSWORD_DEFAULT)
+            ];
 
-            if(count($errores) === 0) { /// Datos que pasaan a la base de DATOS
-                // REGISTRO AL USUARIO
-                $usuarioFinal = [
-                    'nombre' => trim($nombre),
-                    'apellido' => $apellido,
-                    'celular' =>  $celular,
-                    //'obraSocial' =>$obrasSociales,
-                    'usuario' =>  $usuario,
-                    'email' =>  $email,
-                    'dni' =>  $DNI,
-                    'edad' =>  $edad,
-                    'password' => password_hash($contrasenna, PASSWORD_DEFAULT)
+            $usuarios = file_get_contents("usuarios.json");
 
-
-                    ];
-
-                    if($_FILES) {
-                    if($_FILES["imagen"]["error"]!=0){
-                    echo "Hubo un error al cargar la imagen <br>";
-                    } else{
-                    $ext=strtolower(pathinfo($_FILES["imagen"]["name"], PATHINFO_EXTENSION));
-                    if ($ext!="jpg" && $ext!="jpeg" && $ext!="png"){
-                        echo "La imagen debe ser jpg, jpeg o png <br>";
-                    } else{
-                        move_uploaded_file($_FILES["imagen"]["tmp_name"],"archivos/".$usuario."." .$ext);
-                    }
-                    }
-                    }
-
-                // ENVIAR A LA BASE DE DATOS $usuarioFinal
-                $jsonDeUsuario = json_encode($usuarioFinal);
-                file_put_contents('usuarios.json', $jsonDeUsuario . PHP_EOL, FILE_APPEND);
-                header("Location: 005login.php");// Lugar del sitio que pasa cuando se logea
-                exit;
-            }
-            }
-    // }
-
+            $usuariosArray = json_decode($usuarios,true);
+            $usuariosArray[]=$usuario;
+        
+        
+            $usuariosFinal = json_encode($usuariosArray);
+        
+            file_put_contents('usuarios.json',$usuariosFinal);
 
 
+            header("Location: 005login.php");
+        } 
+    }
+
+    
 
 ?>
 
@@ -306,7 +329,9 @@
         <div class="row">
             <!-- Logo DH-Salud -->
             <div class="col-12">
-                <img class="mt-3 rounded mx-auto d-block" src="img/DHSALUD-logo-small.png" alt="">
+                <a href="001index.php">
+                    <img class="mt-3 rounded mx-auto d-block" src="img/DHSALUD-logo-small.png" alt="">
+                </a>
             </div>
 
 
@@ -327,11 +352,11 @@
                 <div class="col-12 d-flex justify-content-center mt-5  mb-2">
                     <input class="_bf_input pt-1 pb-1 pl-3 pr-3 w-100" id="nombre" type="text" name="nombre" placeholder="Nombre" value="<?= $nombre ?>">
                 </div>
-                <?php if ($errores["nombre"] != "") : ?>
+                <?php if ($erroresYDatosCorrectos[1]["nombre"] != "") : ?>
                     <div class="error">
                         <ul>
                             <li>
-                                <?= $errores["nombre"] ?>
+                                <?= $erroresYDatosCorrectos[1]["nombre"] ?>
                             </li>
                         </ul>
                     </div>
@@ -343,11 +368,11 @@
                 <div class="col-12 d-flex justify-content-center">
                     <input class="_bf_input pt-1 pb-1 pl-3 pr-3 w-100 " id="apellido" type="text" name="apellido" placeholder="Apellido" value="<?= $apellido ?>">
                 </div>
-                <?php if ($errores["apellido"] != "") : ?>
+                <?php if ($erroresYDatosCorrectos[1]["apellido"] != "") : ?>
                     <div class="error">
                         <ul>
                             <li>
-                                <?= $errores["apellido"] ?>
+                                <?= $erroresYDatosCorrectos[1]["apellido"] ?>
                             </li>
                         </ul>
                     </div>
@@ -361,11 +386,11 @@
                 <div class="col-12 d-flex justify-content-center">
                     <input class="_bf_input pt-1 pb-1 pl-3 pr-3 w-100 "  id="usuario" type="text" name="usuario" placeholder="Usuario" value="<?= $usuario ?>">
                 </div>
-                <?php if ($errores["usuario"] != "") : ?>
+                <?php if ($erroresYDatosCorrectos[1]["usuario"] != "") : ?>
                     <div class="error">
                         <ul>
                             <li>
-                                <?= $errores["usuario"] ?>
+                                <?= $erroresYDatosCorrectos[1]["usuario"] ?>
                             </li>
                         </ul>
                     </div>
@@ -380,11 +405,11 @@
                 <div class="col-12 d-flex justify-content-center">
                     <input class="_bf_input pt-1 pb-1 pl-3 pr-3 w-100" id="edad" type="text" name="edad" placeholder="Edad" value="<?= $edad ?>">
                 </div>
-                <?php if ($errores["edad"] != "") : ?>
+                <?php if ($erroresYDatosCorrectos[1]["edad"] != "") : ?>
                     <div class="error">
                         <ul>
                             <li>
-                                <?= $errores["edad"] ?>
+                                <?= $erroresYDatosCorrectos[1]["edad"] ?>
                             </li>
                         </ul>
                     </div>
@@ -398,16 +423,18 @@
                 <div class="col-12 d-flex justify-content-center">
                     <input class="_bf_input pt-1 pb-1 pl-3 pr-3 w-100" id="DNI" type="text" name="DNI" placeholder="DNI" value="<?= $DNI ?>">
                 </div>
-                <?php if ($errores["DNI"] != "") : ?>
+                <?php if ($erroresYDatosCorrectos[1]["DNI"] != "") : ?>
                     <div class="error">
                         <ul>
                             <li>
-                                <?= $errores["DNI"] ?>
+                                <?= $erroresYDatosCorrectos[1]["DNI"] ?>
                             </li>
                         </ul>
                     </div>
                 <?php endif; ?>
                 <p></p>
+
+
 
                 <!-- Sexo -->
                 <div class="col">
@@ -435,26 +462,30 @@
                 <div class="col-12 d-flex justify-content-center">
                     <input class="_bf_input pt-1 pb-1 pl-3 pr-3 w-100" id="direccion" type="text" name="direccion" placeholder="Direccion" value="<?= $direccion ?>">
                 </div>
-                <?php if ($errores["direccion"] != "") : ?>
+                <?php if ($erroresYDatosCorrectos[1]["direccion"] != "") : ?>
                     <div class="error">
                         <ul>
                             <li>
-                                <?= $errores["direccion"] ?>
+                                <?= $erroresYDatosCorrectos[1]["direccion"] ?>
                             </li>
                         </ul>
                     </div>
                 <?php endif; ?>
                 <p></p>
 
+
+
+
+
                 <!-- Localidad -->
                 <div class="col-12 d-flex justify-content-center">
                     <input class="_bf_input pt-1 pb-1 pl-3 pr-3 w-100" id="localidad" type="text" name="localidad" placeholder="Localidad" value="<?= $localidad ?>">
                 </div>
-                <?php if ($errores["localidad"] != "") : ?>
+                <?php if ($erroresYDatosCorrectos[1]["localidad"] != "") : ?>
                     <div class="error">
                         <ul>
                             <li>
-                                <?= $errores["localidad"] ?>
+                                <?= $erroresYDatosCorrectos[1]["localidad"] ?>
                             </li>
                         </ul>
                     </div>
@@ -468,11 +499,11 @@
                 <div class="col-12 d-flex justify-content-center">
                     <input class="_bf_input pt-1 pb-1 pl-3 pr-3 w-100" id="celular" type="text" name="celular" placeholder="Celular" value="<?= $celular ?>">
                 </div>
-                <?php if ($errores["celular"] != "") : ?>
+                <?php if ($erroresYDatosCorrectos[1]["celular"] != "") : ?>
                     <div class="error">
                         <ul>
                             <li>
-                                <?= $errores["celular"] ?>
+                                <?= $erroresYDatosCorrectos[1]["celular"] ?>
                             </li>
                         </ul>
                     </div>
@@ -507,11 +538,11 @@
                 <div class="col-12 d-flex justify-content-center">
                     <input class="_bf_input pt-1 pb-1 pl-3 pr-3 w-100" id="email" type="text" name="email" placeholder="E-mail" value="<?= $email ?>">
                 </div>
-                <?php if ($errores["email"] != "") : ?>
+                <?php if ($erroresYDatosCorrectos[1]["email"] != "") : ?>
                     <div class="error">
                         <ul>
                             <li>
-                                <?= $errores["email"] ?>
+                                <?= $erroresYDatosCorrectos[1]["email"] ?>
                             </li>
                         </ul>
                     </div>
@@ -529,11 +560,11 @@
                     <input class="_bf_input pt-1 pb-1 pl-3 pr-3 w-100" id="rContrasenna" type="password" name="rContrasenna" placeholder="Repetir Contraseña">
                 </div>
 
-                <?php if ($errores["contrasenna"] != "") : ?>
+                <?php if ($erroresYDatosCorrectos[1]["contrasenna"] != "") : ?>
                     <div class="error">
                         <ul>
                             <li>
-                                <?= $errores["contrasenna"] ?>
+                                <?= $erroresYDatosCorrectos[1]["contrasenna"] ?>
                             </li>
                         </ul>
                     </div>

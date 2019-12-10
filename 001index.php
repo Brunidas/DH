@@ -35,8 +35,9 @@
 
 
 
-
-                    <button class="_bf_boton-escritorio _bf_crear-cuenta-escritorio">Crear Cuenta</button>
+                    <a href="003form.php">
+                        <button class="_bf_boton-escritorio _bf_crear-cuenta-escritorio">Crear Cuenta</button>
+                    </a>
 
                 </div>
 

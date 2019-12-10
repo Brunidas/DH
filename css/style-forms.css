@@ -63,9 +63,7 @@ body{
 
 }
 
-input[type="checkbox"]{
-    /* display: none; */
-}
+
 
 ._bf_checkbox-label img{
     width: 15px;
@@ -77,8 +75,9 @@ input[type="checkbox"]{
 
 
 .error{
+    font-size: 13px;
     font-weight: bold;
-    color: red;
+    color: orange;
 }
 
 
