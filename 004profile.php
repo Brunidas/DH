@@ -6,7 +6,7 @@ $arrayUsuarios = file_get_contents("usuarios.json");
         foreach($arrayUsuarios as $usuarioJson) {
             $userFinal = json_decode($usuarioJson, true);}
 
-            //var_dump($userFinal);
+            var_dump($userFinal);
 
 ?>
 
@@ -31,7 +31,12 @@ $arrayUsuarios = file_get_contents("usuarios.json");
 
             <div class="box-body">
                      <div class="col-sm-6">
-                     <div  align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive">
+                          <div  align="center">
+                       <?php if (!empty($usuario["imagen"])): ?>
+                         <img src="/archivos/<?php $usuario["imagen"] ?>" alt="">
+                       <?php else: ?>
+                           <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive";?>
+                       <?php endif; ?>
 
                 <input id="profile-image-upload" class="hidden" type="file">
                 <div style="color:#999;" >Click imagen para cambiar foto</div>
@@ -51,7 +56,7 @@ $arrayUsuarios = file_get_contents("usuarios.json");
             <hr style="margin:5px 0 5px 0;">
 
 
-<div class="col-sm-5 col-xs-6 tital ">Documento:</div><div class="col-sm-7 "><?php echo $userFinal['dni'] ?></div> 
+<div class="col-sm-5 col-xs-6 tital ">Documento:</div><div class="col-sm-7 "><?php echo $userFinal['dni'] ?></div>
      <div class="clearfix"></div>
 <div class="bot-border"></div>
 <div class="clearfix"></div>
