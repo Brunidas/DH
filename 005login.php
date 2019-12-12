@@ -1,87 +1,11 @@
 <?php
-    // session_start();
-    // function validarRegistracion($unArray){
+    session_start();
 
-    //     $errores = [];
-
-    //     // Validamos campo "nombre"
-    //     if (isset($unArray['nombre'])) {
-    //         if (empty($unArray['nombre'])) {
-    //             $errores['nombre'] = "Este campo debe completarse.";
-    //         } elseif (strlen($unArray['nombre']) < 2) {
-    //             $errores['nombre'] = "Tu nombre debe tener al menos 2 caracteres.";
-    //         }
-    //     }
-
-    //     // Validamos campo "email"
-    //     if (isset($unArray['email'])) {
-    //         if (empty($unArray['email'])) {
-    //             $errores['email'] = "Este campo debe completarse.";
-    //         } elseif (!filter_var($unArray['email'], FILTER_VALIDATE_EMAIL)) {
-    //             $errores['email'] = "Debés ingresar un email válido.";
-    //         }
-    //     }
-
-    //     if (isset($unArray['password'])) {
-    //         if (empty($unArray['password'])) {
-    //             $errores['password'] = "Este campo debe completarse.";
-    //         } elseif (strlen($unArray['password']) < 6) {
-    //             $errores['password'] = "Tu contraseña debe tener al menos 6 caracteres.";
-    //         }
-    //     }
-
-    //     return $errores;
-    // }
-    // function persistirDato($arrayE, $campo){
-    //     if (isset($arrayE[$campo])) {
-    //         return "";
-    //     } else {
-    //         if (isset($_POST[$campo])) {
-    //             return $_POST[$campo];
-    //         }
-    //     }
-    // }
-    // function armarArrayUsuario()
-    // { }
-    // $arrayDeErrores = [];
-    // if ($_POST) {
-    //     $arrayDeErrores = validarRegistracion($_POST);
-    //     if (count($arrayDeErrores) === 0) {
-    //         $arrayUsuarios = file_get_contents("usuarios.json");
-    //         $arrayUsuarios = explode(PHP_EOL, $arrayUsuarios);
-    //         array_pop($arrayUsuarios);
-    //         foreach ($arrayUsuarios as $usuarioJson) {
-    //             $userFinal = json_decode($usuarioJson, true);
-    //             if ($_POST['email'] == $userFinal['email']) {
-    //                 if (password_verify($_POST['password'], $userFinal['password'])) {
-    //                     //echo " Usuario. ".$usarFinal["nombre"]
-    //                     // Crearle una sesion
-    //                     $_SESSION['email'] = $userFinal['email'];
-    //                     if (isset($_POST['recordarme']) && $_POST['recordarme'] == "on") {
-    //                         // Unix time
-    //                         setcookie('userEmail', $userFinal['email'], time() + 60 * 60 * 24 * 7);
-    //                         setcookie('userPass', $userFinal['password'], time() + 60 * 60 * 24 * 7);
-    //                     }
-
-    //                     //echo $Usuario;
-    //                     header("Location: 004profile.php");
-    //                     exit;
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
-
-
-
-?>
-
-<?php
-    $usuarioContrasenna = "";
+    $usuarioCorreo = "";
     $contrasenna = "";
-    
+
     $errores=[
-        "usuarioContrasenna"=>"",
+        "usuarioCorreo"=>"",
         "contrasenna"=>""
     ];
     $datosCorrectos=true;
@@ -89,17 +13,17 @@
     $erroresYDatosCorrectos=[
         $datosCorrectos,
         $errores
-    ];  
+    ];
 
     function validarIngreso($datosCorrectos, $errores){
-        $usuarioContrasenna = $_POST["usuarioContrasenna"];
+        $usuarioCorreo = $_POST["usuarioCorreo"];
         $contrasennaIngresada = $_POST["contrasenna"];
-        
 
-        // usuario o contraseña 
-        if (strlen($usuarioContrasenna) == 0) {
+
+        // usuario o correo
+        if (strlen($usuarioCorreo) == 0) {
             $datosCorrectos = false;
-            $errores["usuarioContrasenna"] = "Este campo no puede quedar vacio";
+            $errores["usuarioCorreo"] = "Este campo no puede quedar vacio";
         } else {
             // traigo los usuarios cargados en el json
             $usuarios = file_get_contents("usuarios.json");
@@ -107,14 +31,14 @@
 
 
             foreach ($usuariosArray as $usuario){
-                if($usuario["usuario"]==$usuarioContrasenna || $usuario["email"]==$usuarioContrasenna){
+                if($usuario["usuario"]==$usuarioCorreo || $usuario["email"]==$usuarioCorreo){
                     $datosCorrectos = true;
-                    $errores["usuarioContrasenna"] = "";
+                    $errores["usuarioCorreo"] = "";
                     $contrasennaGurdada = $usuario["contrasenna"];
                     break;
                 }else{
                     $datosCorrectos = false;
-                    $errores["usuarioContrasenna"] = "Usuario o Correo no encontrado";
+                    $errores["usuarioCorreo"] = "Usuario o Correo no encontrado";
                 }
             }
 
@@ -143,19 +67,47 @@
 
         return array($datosCorrectos, $errores);
     }
-    
+
 
 
     if($_POST){
-        $usuarioContrasenna = $_POST["usuarioContrasenna"];
+
+        $usuarioCorreo = $_POST["usuarioCorreo"];
         $contrasenna = $_POST["contrasenna"];
-    
+
 
         $erroresYDatosCorrectos = validarIngreso($datosCorrectos, $errores);
 
+
         if ( $erroresYDatosCorrectos[0] ){
+
+            // creo la sesion
+            $_SESSION["usuarioCorreo"] = $usuarioCorreo;
+
+
+            // en caso de indicar que se guarde la session
+            if( isset( $_POST["recordarUsuario"] )  && $_POST["recordarUsuario"]=="on"){
+
+                // crea la cookie del usuario del correo
+                setcookie('usuarioCorreo', $usuarioCorreo, time()+ 60 * 60 * 24 * 7 );
+
+                // crea la cookie del la contraseña
+                $usuarios = file_get_contents("usuarios.json");
+                $usuariosArray = json_decode($usuarios,true);
+                foreach ($usuariosArray as $usuario){
+                    if($usuario["usuario"]==$usuarioCorreo || $usuario["email"]==$usuarioCorreo){
+                        $contrasennaGurdada = $usuario["contrasenna"];
+                        break;
+                    }
+                }
+                setcookie("contrasenna",$contrasennaGurdada, time()+ 60 * 60 * 24 * 7);
+            }
+
+
+
             header("Location: 002home.php");
         }
+
     }
 ?>
 
@@ -204,17 +156,17 @@
 
         <div class="row d-flex justify-content-center">
             <form class="_bf_form col-12  m-3" action="005login.php" method="post">
-                
-            
-                <!-- Usuario contraseña -->
+
+
+                <!-- Usuario o correo -->
                 <div class="col-12 d-flex justify-content-center mt-5  mb-2 ">
-                    <input class="_bf_input pt-1 pb-1 pl-3 pr-3 w-100" type="text" name="usuarioContrasenna" placeholder="Ingresa Correo o Usuario" value="<?= $usuarioContrasenna ?>"   > 
+                    <input class="_bf_input pt-1 pb-1 pl-3 pr-3 w-100" type="text" name="usuarioCorreo" placeholder="Ingresa Usuario o Correo" value="<?= $usuarioCorreo ?>"   >
                 </div>
-                <?php if ($erroresYDatosCorrectos[1]["usuarioContrasenna"] != "") : ?>
+                <?php if ($erroresYDatosCorrectos[1]["usuarioCorreo"] != "") : ?>
                     <div class="error">
                         <ul>
                             <li>
-                                <?= $erroresYDatosCorrectos[1]["usuarioContrasenna"] ?>
+                                <?= $erroresYDatosCorrectos[1]["usuarioCorreo"] ?>
                             </li>
                         </ul>
                     </div>
@@ -260,7 +212,7 @@
 
 
                 <div class="_bf_recordarUsuario col-12">
-                    <input class="_bf_checkbox" type="checkbox" id="seguirconectado" value="conectado">
+                    <input class="_bf_checkbox" type="checkbox" id="seguirconectado"  name="recordarUsuario">
 
                     <label class="_bf_checkbox-label" for="seguirconectado">
                         <!-- <img id="check-square"src="img/icons/check-square.png" alt="">

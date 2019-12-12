@@ -1,8 +1,7 @@
 <?php
+    session_start();
 
-    // session_start();
-    
-    
+
     $nombre = "";
     $apellido = "";
     $usuario = "";
@@ -25,9 +24,9 @@
         "ss" => "Sancor Salud",
         "na" => "Ninguna"
     ];
-    
+
     $datosCorrectos=true;
-    
+
     $errores = [
         "nombre" => "",
         "apellido" => "",
@@ -47,10 +46,10 @@
     $erroresYDatosCorrectos=[
         $datosCorrectos,
         $errores
-    ];  
+    ];
 
     // validacion del formulario
-    if ($_POST) {        
+    if ($_POST) {
         $nombre = $_POST["nombre"];
         $apellido = $_POST["apellido"];
         $usuario = $_POST["usuario"];
@@ -81,7 +80,7 @@
             $contrasenna = $_POST["contrasenna"];
             $rContrasenna = $_POST["rContrasenna"];
 
-        
+
             // nombre
             if (strlen($nombre) == 0) {
                 $datosCorrectos = false;
@@ -126,7 +125,7 @@
                         $edad = filter_var($edad, FILTER_SANITIZE_STRING);
                     }
                 } else {
-                    $datosCorrectos = false;                    
+                    $datosCorrectos = false;
                     $errores["edad"] = "La edad deber ser un numero";
                 }
             }
@@ -197,7 +196,7 @@
             } else {
                 $email = filter_var($email, FILTER_VALIDATE_EMAIL);
             }
-         
+
             // contraseña
             if( isset($contrasenna) ) {
                 if( empty($contrasenna) ) {
@@ -223,12 +222,12 @@
             return array($datosCorrectos, $errores) ;
         }
 
-       
+
         $erroresYDatosCorrectos = validacionDatos($datosCorrectos, $errores) ;
 
         // guardar usuario
         if( $erroresYDatosCorrectos[0] ){
-            
+
             $usuario=[
                 "nombre"=>$nombre,
                 "apellido"=>$apellido,
@@ -247,18 +246,18 @@
 
             $usuariosArray = json_decode($usuarios,true);
             $usuariosArray[]=$usuario;
-        
-        
+
+
             $usuariosFinal = json_encode($usuariosArray);
-        
+
             file_put_contents('usuarios.json',$usuariosFinal);
 
 
             header("Location: 005login.php");
-        } 
+        }
     }
 
-    
+
 
 ?>
 
