@@ -228,18 +228,6 @@
 
         // guardar usuario
         if( $erroresYDatosCorrectos[0] ){
-            // echo "Los datos se pueden guardar :D <br>";
-            // echo 'Nombre: ' . $nombre . '<br>';
-            // echo 'Apellido: ' . $apellido . '<br>';
-            // echo 'Usuario: ' . $usuario . '<br>';
-            // echo 'Edad: ' . $edad . '<br>';
-            // echo 'DNI: ' . $DNI . '<br>';
-            // echo 'Sexo: ' . $sexo . '<br>';
-            // echo 'Direccion: ' . $direccion . '<br>';
-            // echo 'Localidad: ' . $localidad . '<br>';
-            // echo 'ObraSociales: ' . $obraSocial. '<br>';
-            // echo 'Email: ' . $email . '<br>';
-            // echo 'Contraseña: ' . $contrasenna . '<br>';
             
             $usuario=[
                 "nombre"=>$nombre,
