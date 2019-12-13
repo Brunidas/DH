@@ -237,6 +237,7 @@
                 'sexo'=>$sexo,
                 'direccion'=>$direccion,
                 'localidad'=>$localidad,
+                'celular' => $celular,
                 'obraSocial'=>$obraSocial,
                 'email'=>$email,
                 'contrasenna'=>password_hash($contrasenna, PASSWORD_DEFAULT)

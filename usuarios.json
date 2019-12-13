@@ -50,5 +50,19 @@
         "obraSocial": "ga",
         "email": "lucho@lucho.com",
         "contrasenna": "$2y$10$jqVxdjD1\/xoexWOn6NIP5.xrqlx3nnZ.LRnv8o\/himHdaV.m8IkMC"
+    },
+    {
+        "nombre": "Roberto",
+        "apellido": "Alberobeto",
+        "usuario": "algarrobo",
+        "edad": "45",
+        "DNI": "17123333",
+        "sexo": "m",
+        "direccion": "Calle False 123",
+        "localidad": "Que Te",
+        "celular": "5551231238",
+        "obraSocial": "os",
+        "email": "robe@berto.com",
+        "contrasenna": "$2y$10$xibE96IVk7bDOdWHL.TyZuP2y.fYr25L.wTXLNSsA\/2o60pyhljzu"
     }
 ]

@@ -1,44 +1,33 @@
-<?php
 
-
-
-// session_start();
-// $arrayUsuarios = file_get_contents("usuarios.json");
-// $arrayUsuarios = explode(PHP_EOL, $arrayUsuarios);
-// array_pop($arrayUsuarios);
-// foreach ($arrayUsuarios as $usuarioJson) {
-//   $userFinal = json_decode($usuarioJson, true);
-// }
-
-// var_dump($userFinal);
-
-?>
 
 
 <?php
-  session_start();
+    session_start();
 
 
-  // crea el usuario actual
-  $usuarios = file_get_contents("usuarios.json");
-  $usuariosArray = json_decode($usuarios,true);
-  foreach ($usuariosArray as $usuario){
-      if($usuario["usuario"]==$_SESSION["usuarioCorreo"] || $usuario["email"]==$_SESSION["usuarioCorreo"]){
-          $usuarioActual=[
-            "nombre"=>$usuario["nombre"],
-            "apellido"=>$usuario["apellido"],
-            "usuario"=>$usuario["usuario"],
-            'edad'=>$usuario["edad"],
-            'DNI'=>$usuario["DNI"],
-            'sexo'=>$usuario["sexo"],
-            'direccion'=>$usuario["direccion"],
-            'localidad'=>$usuario["localidad"],
-            'obraSocial'=>$usuario["obraSocial"],
-            'email'=>$usuario["email"]
-          ];
-          break;
-      }
-  }
+    // crea el usuario actual
+    $usuarios = file_get_contents("usuarios.json");
+    $usuariosArray = json_decode($usuarios,true);
+    foreach ($usuariosArray as $usuario){
+        if($usuario["usuario"]==$_SESSION["usuarioCorreo"] || $usuario["email"]==$_SESSION["usuarioCorreo"]){
+            $usuarioActual=[
+              "nombre"=>$usuario["nombre"],
+              "apellido"=>$usuario["apellido"],
+              "usuario"=>$usuario["usuario"],
+              'edad'=>$usuario["edad"],
+              'DNI'=>$usuario["DNI"],
+              'sexo'=>$usuario["sexo"],
+              'direccion'=>$usuario["direccion"],
+              'localidad'=>$usuario["localidad"],
+              'obraSocial'=>$usuario["obraSocial"],
+              'email'=>$usuario["email"]
+            ];
+            break;
+        }
+    }
+
+
+
 
 
 
