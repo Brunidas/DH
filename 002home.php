@@ -46,8 +46,8 @@
 
             <?php for($i=1;$i<=$cantidadEspecialidades;$i++): ?>
 
-                <div class="col-12 d-flex justify-content-center col-sm-6 col-md-4 mb-3 while">
-                    <button class="_bf_especialidad pt-3 pb-3" type="submit">
+                <div class="col-12 d-flex justify-content-center col-sm-6 col-md-4 mb-3">
+                    <button class="_bf_especialidad pt-3 pb-3 " type="submit" id="especialidad<?=$i?>">
                         Especialidad <?=$i;?>
                     </button>
                 </div>

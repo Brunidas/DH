@@ -264,37 +264,6 @@
 
 <!DOCTYPE html>
 <html lang="es">
-
-<!-- <head>
-    <style>
-        form {
-            margin: auto;
-            width: 400px;
-            padding: 25px 20px;
-            background: rgba(0, 170, 228, 0.8);
-            box-sizing: border-box;
-            margin-top: 20px;
-            border-radius: 7px;
-        }
-
-        input {
-            width: 100%;
-            margin-bottom: 20;
-            padding: 5px;
-            box-sizing: border-box;
-            font-size: 17;
-            border: none;
-
-
-
-        }
-
-        .error {
-            color: #fff;
-            background: red;
-        }
-    </style>
-</head> -->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

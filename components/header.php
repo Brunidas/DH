@@ -12,22 +12,22 @@
 
         <div class="col-0 col-md-6 d-flex justify-content-md-end">
             <div class="_bf_botones">
-                <div >
+                <div>
                     <a href="007faq.php">
                         <img src="img/icons/FAQ-icono.png" alt="">
                     </a>
                 </div>
-                <div >
+                <div>
                     <a href="006contact.php">
                         <img src="img/icons/chat-icono.png" alt="">
                     </a>
                 </div>
-                <div >
+                <div>
                     <a href="#">
                         <img src="img/icons/notificaciones-icono.png" alt="">
                     </a>
                 </div>
-                <div >
+                <div>
                     <a href="004profile.php">
                         <img src="img/icons/usuario-icono.png" alt="">
                     </a>
