@@ -12,10 +12,10 @@ $(document).ready(function(){
     // });
 
 
-    var especialidadSeleccionada = $('#especialidadSeleccionada');
-    especialidadSeleccionada.on('click',function(){
-        // alert("Se cancelo el turno");
-    });  
+    // var especialidadSeleccionada = $('#especialidadSeleccionada');
+    // especialidadSeleccionada.on('click',function(){
+    //     // alert("Se cancelo el turno");
+    // });  
 
 
     var fecha = $('#datepicker');

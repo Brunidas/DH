@@ -194,7 +194,7 @@
 
 
 
-                <div class="_bf_contrasennaOlvidada col-12 d-flex justify-content-center mb-4">
+                <div class="_bf_textoDebajoBoton col-12 d-flex justify-content-center mb-4">
                     ¿Contraseña olivada?
                     <a class="ml-1" href="#"> Click aquí</a>
                 </div>
