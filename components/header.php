@@ -1,3 +1,11 @@
+
+<?php
+    if( isset($_COOKIE["usuarioCorreo"])==false && isset($_COOKIE["contrasenna"])==false){
+        header("Location: 005login.php");
+    };
+?>
+
+
 <header class="_bf_navbar">
 
 
@@ -65,10 +73,16 @@
                 <img src="img/icons/usuario-icono.png" alt="">
             </a>
         </div>
-
+        <div href="#">
+            <a>
+                <img src="img/icons/usuario-icono.png" alt="">
+            </a>
+        </div>
 
     </div>
 
-
+    <div>
+        <a href="009logout.php">Cerrar Sesión</a>
+    </div>
 
 </header>

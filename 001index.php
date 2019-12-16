@@ -1,3 +1,10 @@
+<?php
+    if( isset($_COOKIE["usuarioCorreo"])==true && isset($_COOKIE["contrasenna"])==true){
+        header("Location: 002home.php");
+    };
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 
