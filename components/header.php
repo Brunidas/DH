@@ -1,9 +1,12 @@
 
 <?php
+    /*
     if( isset($_COOKIE["usuarioCorreo"])==false && isset($_COOKIE["contrasenna"])==false){
         header("Location: 005login.php");
     };
+    */
 ?>
+
 
 
 <header class="_bf_navbar">

@@ -1,7 +1,8 @@
 <?php
     session_start();
-    
-    $cantidadEspecialidades = 23;
+
+    $cantidadEspecialidades = 10;
+
 ?>
 
 
@@ -15,8 +16,7 @@
 
 <body>
 
-
-    <?php include_once "components/header.php"; ?>
+    <?php include_once "components/header.php";?>
 
     <div class="container p-4 p-md-5">
         <div class="_bf_titulos-mobile row mb-4 ">

@@ -1,4 +1,5 @@
 <?php
+    include_once('clases/conexion.php');
     session_start();
 
 
@@ -82,139 +83,139 @@
 
 
             // nombre
-            if (strlen($nombre) == 0) {
-                $datosCorrectos = false;
-                $errores["nombre"] = "El nombre no puede quedar vacio";
-            } else {
-                $nombre = filter_var($nombre, FILTER_SANITIZE_STRING);
-            }
+                if (strlen($nombre) == 0) {
+                    $datosCorrectos = false;
+                    $errores["nombre"] = "El nombre no puede quedar vacio";
+                } else {
+                    $nombre = filter_var($nombre, FILTER_SANITIZE_STRING);
+                }
 
             // apellido
-            if (strlen($apellido) == 0) {
-                $datosCorrectos = false;
-                $errores["apellido"] = "El apellido no puede quedar vacio";
-            } else {
-                $apellido = filter_var($apellido, FILTER_SANITIZE_STRING);
+                if (strlen($apellido) == 0) {
+                    $datosCorrectos = false;
+                    $errores["apellido"] = "El apellido no puede quedar vacio";
+                } else {
+                    $apellido = filter_var($apellido, FILTER_SANITIZE_STRING);
 
-            }
+                }
 
             // usuario
-            if (strlen($usuario) == 0) {
-                $datosCorrectos = false;
-                $errores["usuario"] = "El usuario no puede quedar vacio";
-            } else {
-                if (!preg_match("/^[a-zA-Z ]*$/", $usuario)) {
+                if (strlen($usuario) == 0) {
                     $datosCorrectos = false;
-                    $errores["usuario"] = "Solo se puede usar texto";
+                    $errores["usuario"] = "El usuario no puede quedar vacio";
                 } else {
-                    $usuario = filter_var($usuario, FILTER_SANITIZE_STRING);
+                    if (!preg_match("/^[a-zA-Z ]*$/", $usuario)) {
+                        $datosCorrectos = false;
+                        $errores["usuario"] = "Solo se puede usar texto";
+                    } else {
+                        $usuario = filter_var($usuario, FILTER_SANITIZE_STRING);
+                    }
                 }
-            }
 
 
             // edad
-            if (strlen($edad) == 0) {
-                $datosCorrectos = false;
-                $errores["edad"] = "La edad no puede quedar vacia";
-            } else {
-                if (is_numeric($edad)) {
-                    if ($edad < 0) {
-                        $datosCorrectos = false;
-                        $errores["edad"] = "La edad no puede ser menor a cero";
-                    } else {
-                        $edad = filter_var($edad, FILTER_SANITIZE_STRING);
-                    }
-                } else {
+                if (strlen($edad) == 0) {
                     $datosCorrectos = false;
-                    $errores["edad"] = "La edad deber ser un numero";
+                    $errores["edad"] = "La edad no puede quedar vacia";
+                } else {
+                    if (is_numeric($edad)) {
+                        if ($edad < 0) {
+                            $datosCorrectos = false;
+                            $errores["edad"] = "La edad no puede ser menor a cero";
+                        } else {
+                            $edad = filter_var($edad, FILTER_SANITIZE_STRING);
+                        }
+                    } else {
+                        $datosCorrectos = false;
+                        $errores["edad"] = "La edad deber ser un numero";
+                    }
                 }
-            }
 
 
 
             // D.N.I.
-            if (strlen($DNI) == 0) {
-                $datosCorrectos = false;
-                $errores["DNI"] = "El DNI no puede quedar vacio";
-            } else {
-                if (is_numeric($DNI)) {
-                    if ($DNI < 0 ) {
-                        $datosCorrectos = false;
-                        $errores["DNI"] = "El DNI no puede ser menor a cero";
-                    } else {
-                        $DNI = filter_var($DNI, FILTER_SANITIZE_STRING);
-                    }
-                } else {
+                if (strlen($DNI) == 0) {
                     $datosCorrectos = false;
-                    $errores["DNI"] = "El DNI deber ser un numero";
+                    $errores["DNI"] = "El DNI no puede quedar vacio";
+                } else {
+                    if (is_numeric($DNI)) {
+                        if ($DNI < 0 ) {
+                            $datosCorrectos = false;
+                            $errores["DNI"] = "El DNI no puede ser menor a cero";
+                        } else {
+                            $DNI = filter_var($DNI, FILTER_SANITIZE_STRING);
+                        }
+                    } else {
+                        $datosCorrectos = false;
+                        $errores["DNI"] = "El DNI deber ser un numero";
+                    }
                 }
-            }
 
 
 
             // direccion
-            if (strlen($direccion) == 0) {
-                $datosCorrectos = false;
-                $errores["direccion"] = "La direccion no puede quedar vacia";
-            } else {
-                $direccion = filter_var($direccion, FILTER_SANITIZE_STRING);
-            }
+                if (strlen($direccion) == 0) {
+                    $datosCorrectos = false;
+                    $errores["direccion"] = "La direccion no puede quedar vacia";
+                } else {
+                    $direccion = filter_var($direccion, FILTER_SANITIZE_STRING);
+                }
 
 
             // localidad
-            if (strlen($localidad) == 0) {
-                $datosCorrectos = false;
-                $errores["localidad"] = "La localidad no puede quedar vacia";
-            } else {
-                $localidad = filter_var($localidad, FILTER_SANITIZE_STRING);
-            }
+                if (strlen($localidad) == 0) {
+                    $datosCorrectos = false;
+                    $errores["localidad"] = "La localidad no puede quedar vacia";
+                } else {
+                    $localidad = filter_var($localidad, FILTER_SANITIZE_STRING);
+                }
 
             // celular
-            if (strlen($celular) == 0) {
-                $datosCorrectos = false;
-                $errores["celular"] = "El número de celular no puede quedar vacio";
-            } else {
-                if (is_numeric($celular)) {
-                    if (strlen($celular) != 10) {
-                        $datosCorrectos = false;
-                        $errores["celular"] = "El número debe tener exactamente 10 digitos";
-                    } else {
-                        $celular = filter_var($celular, FILTER_SANITIZE_STRING);
-
-                    }
-                } else {
+                if (strlen($celular) == 0) {
                     $datosCorrectos = false;
-                    $errores["celular"] = "El número de celular debe ser un numero";
+                    $errores["celular"] = "El número de celular no puede quedar vacio";
+                } else {
+                    if (is_numeric($celular)) {
+                        if (strlen($celular) != 10) {
+                            $datosCorrectos = false;
+                            $errores["celular"] = "El número debe tener exactamente 10 digitos";
+                        } else {
+                            $celular = filter_var($celular, FILTER_SANITIZE_STRING);
+
+                        }
+                    } else {
+                        $datosCorrectos = false;
+                        $errores["celular"] = "El número de celular debe ser un numero";
+                    }
                 }
-            }
 
 
             // email
-            if (strlen($email) == 0) {
-                $datosCorrectos = false;
-                $errores["email"] = "El email no puede quedar vacio";
-            } else {
-                $email = filter_var($email, FILTER_VALIDATE_EMAIL);
-            }
+                if (strlen($email) == 0) {
+                    $datosCorrectos = false;
+                    $errores["email"] = "El email no puede quedar vacio";
+                } else {
+                    $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+                }
 
             // contraseña
-            if( isset($contrasenna) ) {
-                if( empty($contrasenna) ) {
-                    $errores['contrasenna'] = "La contraseña no puede quedar vacia.";
-                    $datosCorrectos = false;
-                }else {
-                    if( strlen($contrasenna) < 6 ){
+                if( isset($contrasenna) ) {
+                    if( empty($contrasenna) ) {
+                        $errores['contrasenna'] = "La contraseña no puede quedar vacia.";
                         $datosCorrectos = false;
-                        $errores['contrasenna'] = "Tu contraseña debe tener al menos 6 caracteres.";
-                    }else{
-                        if($contrasenna != $rContrasenna){
+                    }else {
+                        if( strlen($contrasenna) < 6 ){
                             $datosCorrectos = false;
-                            $errores['contrasenna'] = "Tienes que ingresar la misma contraseña";
+                            $errores['contrasenna'] = "Tu contraseña debe tener al menos 6 caracteres.";
                         }else{
+                            if($contrasenna != $rContrasenna){
+                                $datosCorrectos = false;
+                                $errores['contrasenna'] = "Tienes que ingresar la misma contraseña";
+                            }else{
+                            }
                         }
                     }
                 }
-            }
 
 
 
@@ -227,6 +228,13 @@
 
         // guardar usuario
         if( $erroresYDatosCorrectos[0] ){
+
+            // $consulta = $db->prepare("INSERT INTO usuarios ('usuario', 'contrasenia', 'mail', 'nombre', 'apellido', 'documento', 'administrador') VALUES() ");
+
+            //('JuanPerez', 'contrasenamuysegura', 'juan@perez.com', 'Juan', 'Perez', '11222333', '0');
+
+            // $consulta->bindValue(':usuario',$usuario,PDO::PARAM_S);
+
 
             $usuario=[
                 "nombre"=>$nombre,
@@ -280,7 +288,43 @@
 
 
 <body>
+    <?php
 
+        include_once('clases/paciente.php');
+
+        $persona = new Paciente;
+        $persona->setUsuario("JuanPerez");
+        $persona->setContrasenia('contrasenamuysegura');
+        $persona->setEmail('juan@perez.com');
+        $persona->setNombre('Juan');
+        $persona->setApellido('Perez');
+        $persona->setDni(11222333);
+        $persona->setAdministrador(false);
+        $persona->setEdad('20');
+        $persona->setSexo('m');
+        $persona->setDireccion('calle falsa 123');
+        $persona->setLocalidad('Lujan');
+        $persona->setCelular(2614442555);
+        $persona->setNumeroDeSocio(000456);
+        $persona->setObraSocial('OSDE');
+
+
+        echo  $persona->getUsuario(). '<br>';
+        echo  $persona->getContrasenia(). '<br>';
+        echo  $persona->getEmail(). '<br>';
+        echo  $persona->getNombre(). '<br>';
+        echo  $persona->getApellido(). '<br>';
+        echo  $persona->getDni(). '<br>';
+        echo  $persona->getAdministrador(). '<br>';
+        echo  $persona->getEdad(). '<br>';
+        echo  $persona->getSexo(). '<br>';
+        echo  $persona->getDireccion(). '<br>';
+        echo  $persona->getLocalidad(). '<br>';
+        echo  $persona->getCelular(). '<br>';
+        echo  $persona->getnumeroDeSocio(). '<br>';
+        echo  $persona->getObraSocial(). '<br>';
+
+    ?>
 
     <div class="container">
         <div class="row">

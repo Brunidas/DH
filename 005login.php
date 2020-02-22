@@ -1,4 +1,5 @@
 <?php
+    /*
     if( isset($_COOKIE["usuarioCorreo"])==true && isset($_COOKIE["contrasenna"])==true){
         header("Location: 002home.php");
     };
@@ -115,6 +116,7 @@
         }
 
     }
+*/
 ?>
 
 
@@ -165,35 +167,35 @@
 
 
                 <!-- Usuario o correo -->
-                <div class="col-12 d-flex justify-content-center mt-5  mb-2 ">
-                    <input class="_bf_input pt-1 pb-1 pl-3 pr-3 w-100" type="text" name="usuarioCorreo" placeholder="Ingresa Usuario o Correo" value="<?= $usuarioCorreo ?>"   >
-                </div>
-                <?php if ($erroresYDatosCorrectos[1]["usuarioCorreo"] != "") : ?>
-                    <div class="error">
+                <!-- <div class="col-12 d-flex justify-content-center mt-5  mb-2 ">
+                    <input class="_bf_input pt-1 pb-1 pl-3 pr-3 w-100" type="text" name="usuarioCorreo" placeholder="Ingresa Usuario o Correo" value="<? // echo $usuarioCorreo ?>"   >
+                </div> -->
+                <?php // if ($erroresYDatosCorrectos[1]["usuarioCorreo"] != "") : ?>
+                    <!-- <div class="error">
                         <ul>
-                            <li>
-                                <?= $erroresYDatosCorrectos[1]["usuarioCorreo"] ?>
-                            </li>
+                            <li> -->
+                                <?// echo $erroresYDatosCorrectos[1]["usuarioCorreo"] ?>
+                            <!-- </li>
                         </ul>
-                    </div>
-                <?php endif; ?>
+                    </div> -->
+                <?php // endif; ?>
                 <p></p>
 
 
 
                 <!-- Contraseña  -->
-                <div class="col-12 d-flex justify-content-center">
+                <!-- <div class="col-12 d-flex justify-content-center">
                     <input class="_bf_input pt-1 pb-1 pl-3 pr-3 w-100 " type="password" name="contrasenna" placeholder="Contraseña">
-                </div>
-                <?php if ($erroresYDatosCorrectos[1]["contrasenna"] != "") : ?>
-                    <div class="error">
+                </div> -->
+                <?php // if ($erroresYDatosCorrectos[1]["contrasenna"] != "") : ?>
+                    <!-- <div class="error">
                         <ul>
-                            <li>
-                                <?= $erroresYDatosCorrectos[1]["contrasenna"] ?>
-                            </li>
+                            <li> -->
+                                <? // echo $erroresYDatosCorrectos[1]["contrasenna"] ?>
+                            <!-- </li>
                         </ul>
-                    </div>
-                <?php endif; ?>
+                    </div> -->
+                <?php // endif; ?>
                 <p></p>
 
 
@@ -213,7 +215,7 @@
                     </button>
                 </div>
 
-
+                <a href="002home.php">Iniciar sesion </a>
 
 
 
@@ -232,7 +234,7 @@
 
 
                 <div class="_bf_textoDebajoBoton col-12 d-flex justify-content-center mb-5">
-                    ¿Nuevo en DH Salud? <a class="ml-1" href="003form.php">Crear cuenta</a>
+                    ¿Nuevo en DH Salud? <a class="ml-1" href="003form-1.php">Crear cuenta</a>
                 </div>
             </form>
 
