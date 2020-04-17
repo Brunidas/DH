@@ -9,15 +9,6 @@ use App\Specialty;
 class SpecialtiesController extends Controller
 {
     public function listado(){
-        // dd("Llegue bien :D");
-
-        // $especialidades = [
-        //     0 => "ALERGIA E INMUNOLOGÍA",
-        //     1 => "ANATOMÍA PATOLÓGICA",
-        //     2 => "ANESTESIOLOGÍA",
-        //     3 => "ANGIOLOGÍA GENERAL y HEMODINAMIA",
-        //     4 => "CARDIOLOGÍA"
-        // ];
 
         $especialidades = Specialty::all();
         
@@ -39,6 +30,7 @@ class SpecialtiesController extends Controller
         return redirect("/especialidades");
     }
 
+
     public function agregar ( Request $formulario ){
         
         $especialidadNueva = new Specialty();
@@ -48,5 +40,37 @@ class SpecialtiesController extends Controller
         $especialidadNueva->save();
 
         return redirect("/especialidades");
+
     }
+
+
+
+    public function editar( $id ){
+        // return "Este es el id recibido: $id";
+
+        $especialidad = Specialty::find( $id );
+    
+        $vac = compact( "especialidad" );
+            
+        return view("editarEspecialidad", $vac);
+    }   
+
+    public function completarEdicion( Request $formulario ){
+        // echo "Este es el id recibido:". $formulario['id'] ;
+        // echo "<br>";
+        // echo "Este es el nuevo dato:" . $formulario['name'];
+
+        $id = $formulario['id'];
+        $nuevoNombre = $formulario['name'];
+
+        $especialidad = Specialty::find( $id );
+        
+        $especialidad->name = $nuevoNombre;
+
+        $especialidad->save();
+
+        return redirect("/especialidades");
+    }
+
+
 }

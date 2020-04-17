@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar pelicula</title>
+    <title>Agregar Especialidad</title>
 </head>
 <body>
-    <form action="/agregarPelicula" method="post" >
-        {{ csrf_field() }}
+    <form action="/agregarEspecialidad" method="post" >
+        {{ csrf_field() }}  
         <div class="">
             <label for="name">Nombre Especialidad</label>
             <input type="text" name="name" id="" value="">

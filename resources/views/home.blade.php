@@ -16,6 +16,11 @@
 
                     You are logged in!
                 </div>
+
+                <div class="">
+                    <a href="/especialidades"> Especialidades</a>
+                </div>
+
             </div>
         </div>
     </div>

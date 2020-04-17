@@ -23,6 +23,14 @@
                     <input type="hidden" name="id" value= "{{ $especiliadad->id }}" >
                     <input type="submit" value="Borrar Especialidad">
                 </form>
+
+
+
+                <form action="/editarEspecialidad/{{ $especiliadad->id }}" method="get">
+                    {{ csrf_field() }}
+                    <input type="submit" value="Editar Especialidad">
+                </form>
+
             </li>
             <br>
             @endforeach
