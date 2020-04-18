@@ -21,6 +21,10 @@
                     <a href="/especialidades"> Especialidades</a>
                 </div>
 
+                <div class="">
+                    <a href="/obrasSociales"> Obras Sociales</a>
+                </div>
+
             </div>
         </div>
     </div>

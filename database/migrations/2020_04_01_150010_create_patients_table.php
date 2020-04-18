@@ -16,8 +16,8 @@ class CreatePatientsTable extends Migration
         Schema::create('patients', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->unsignedBigInteger('medical_insurance_id');
-            $table->foreign('medical_insurance_id')->references('id')->on('medical_insurance');
+            $table->unsignedBigInteger('medical_insurances_id');
+            $table->foreign('medical_insurances_id')->references('id')->on('medical_insurances');
 
             $table->boolean('account_holder');
             $table->integer('membership_number');

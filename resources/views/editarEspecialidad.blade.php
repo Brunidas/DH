@@ -10,7 +10,7 @@
         {{ csrf_field() }}
         {{ $especialidad["name"] }}
         <br>
-        {{ $especialidad["id"] }}
+        <!-- {{ $especialidad["id"] }} -->
         <div class="">
             <label for="name">Nuevo Nombre De Especialidad</label>
             <input type="text" name="name" id="" value="">

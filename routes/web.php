@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
+// especialidades
 Route::get('/especialidades', "SpecialtiesController@listado");
 
 Route::post('/borrarEspecialidad', "SpecialtiesController@borrar");
@@ -29,6 +29,9 @@ Route::get('/agregarEspecialidad', function() {
 } );
 Route::post('/agregarEspecialidad', "SpecialtiesController@agregar");
 
-
 Route::get('/editarEspecialidad/{id}', "SpecialtiesController@editar");
 Route::post('/editarEspecialidad', "SpecialtiesController@completarEdicion");
+
+// -----------------------------------
+// obras sociales
+Route::get('/obrasSociales', "MedicalInsuranceController@listado");
