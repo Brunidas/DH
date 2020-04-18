@@ -35,3 +35,13 @@ Route::post('/editarEspecialidad', "SpecialtiesController@completarEdicion");
 // -----------------------------------
 // obras sociales
 Route::get('/obrasSociales', "MedicalInsuranceController@listado");
+
+Route::get('/agregarObraSocial', function() {
+    return view('agregarObraSocial');
+});
+Route::post('/agregarObraSocial','MedicalInsuranceController@agregar');
+
+Route::post('/borrarObraSocial', "MedicalInsuranceController@borrar");
+
+Route::get('/editarObraSocial/{id}', "MedicalInsuranceController@editar");
+Route::post('/editarObraSocial', "MedicalInsuranceController@completarEdicion");
