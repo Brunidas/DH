@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Especialidades Medicas</title>
-</head>
-<body>
-    
+@extends("plantilla")
+
+@section("principal")
+
     <h1>Especialidades:</h1>
     <p>
         <form action="/agregarEspecialidad" method="get">
@@ -36,10 +31,9 @@
             @endforeach
         </ul>
 
-        
+
 
     </p>
 
 
-</body>
-</html>
+@endsection

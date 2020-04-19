@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar Especialidad</title>
-</head>
-<body>
+@extends("plantilla")
+
+@section("principal")
     <form action="/agregarEspecialidad" method="post" >
-        {{ csrf_field() }}  
+        {{ csrf_field() }}
         <div class="">
             <label for="name">Nombre Especialidad</label>
             <input type="text" name="name" id="" value="">
@@ -17,5 +12,4 @@
             <input type="submit" value="Agregar Especialidad">
         </div>
     </form>
-</body>
-</html>
+@endsection

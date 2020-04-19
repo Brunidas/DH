@@ -1,0 +1,100 @@
+body{
+    background-image: url("../img/textura.png");
+    font-family: "Arial";
+    box-sizing: border-box;
+}
+
+
+.container{
+    max-width: 1000px;
+    background-color: #fff;
+}
+
+
+._bf_titulos h1,
+._bf_titulos h2,
+._bf_titulos-mobile h1,
+._bf_titulos-mobile h2{
+    color:rgba(97, 98, 99, .9);
+}
+
+
+/* background: #04C2FF; */
+
+@media (min-width:768px){
+    ._bf_titulos-mobile{
+        display: none;
+    }
+
+}
+
+@media (max-width:768px){
+    ._bf_titulos{
+        display: none;
+    }
+
+}
+
+
+._bf_especialidad{
+    color: #fff;
+    font-size: 20px;
+    background: #04C2FF;
+    border: none;
+    border-radius: 10px;
+    width: 210px;
+
+}
+
+._bf_botonFaq-color{
+    color: #fff;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    min-height: 40px;
+    background: rgb(117,13,138);
+    background: linear-gradient(90deg, rgba(117,13,138,1) 0%, rgba(0,191,203,1) 100%);
+
+    position: relative;
+    z-index: 2;
+}
+
+
+._bf_botonFaq-flechaAbajo{
+    margin-top: -10px;
+}
+
+._bf_botonFaq-flechaArriba{
+    position: relative;
+    margin-bottom: -10px;
+}
+
+
+._bf_botonFaq-texto{
+    font-size: 15px;
+    border: solid 1px rgba(97, 98, 99, .9);
+    border-radius: 0 0 10px 10px;
+    color:rgba(97, 98, 99, .9);
+    position: relative;
+    z-index: 1;
+    top:-20px
+}
+
+
+
+/* estas clases se usan en FAQ*/
+._bf_displayNone{
+    display: none;
+}
+
+
+@media (max-width:768px){
+    ._bf_botonFaq-flechaAbajo{
+        display: none;
+    }
+
+    ._bf_botonFaq-flechaArriba{
+        display: none;
+    }
+
+}
