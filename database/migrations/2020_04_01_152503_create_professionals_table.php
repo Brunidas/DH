@@ -20,8 +20,8 @@ class CreateProfessionalsTable extends Migration
             $table->unsignedBigInteger('specialties_id');
             $table->foreign('specialties_id')->references('id')->on('specialties');
 
-            $table->unsignedBigInteger('users_id');
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
 
             $table->timestamps();
         });

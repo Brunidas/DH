@@ -45,3 +45,23 @@ Route::post('/borrarObraSocial', "MedicalInsuranceController@borrar");
 
 Route::get('/editarObraSocial/{id}', "MedicalInsuranceController@editar");
 Route::post('/editarObraSocial', "MedicalInsuranceController@completarEdicion");
+
+// -----------------------------------
+// usuarios
+Route::get('/usuarios', "UsersController@listado");
+
+Route::get('/adminstradores', "AdminsController@listado");
+
+Route::get('/profesionales', "ProfessionalsController@listado");
+
+Route::get('/test1',function(){
+    
+
+    $amdin = App\User::find(1);
+    return $amdin;
+    
+    
+    // $user = App\Admin::find(1);
+    // return $user;
+
+});

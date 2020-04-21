@@ -16,13 +16,28 @@
 
                     You are logged in!
                 </div>
-
+                
+                <hr>
+                
                 <div class="">
-                    <a href="/especialidades"> Especialidades</a>
+                    Acciones de admin:
                 </div>
 
                 <div class="">
-                    <a href="/obrasSociales"> Obras Sociales</a>
+                    <a href="/especialidades">Listado Especialidades</a>
+                </div>
+
+                <div class="">
+                    <a href="/obrasSociales">Listado Obras Sociales</a>
+                </div>
+                
+                <div class="">
+                    <a href="/usuarios">Administrar Usuarios</a>
+                </div>
+
+                <hr>
+                <div class="">
+                    Acciones de usuario normal:
                 </div>
 
             </div>

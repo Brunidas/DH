@@ -8,6 +8,15 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    public $guarded = [];
+    
+
+    public function admin(){
+        return $this->hasOne('App\Admin');
+    }
+
+
+    
     use Notifiable;
 
     /**
@@ -16,7 +25,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','user'
+        'name', 'email', 'password','user','lastname','dni'
     ];
 
     /**
