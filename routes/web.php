@@ -35,3 +35,37 @@ Route::post('/editarEspecialidad', "SpecialtiesController@completarEdicion");
 // -----------------------------------
 // obras sociales
 Route::get('/obrasSociales', "MedicalInsuranceController@listado");
+
+
+
+// contacto
+Route::get('/contact', function() {
+    return view('contact');
+} );
+
+
+// turno
+Route::get('/turno', function() {
+    return view('turno');
+} );
+
+// perfil
+Route::get('/profile', function() {
+    return view('profile');
+} );
+
+// indice
+Route::get('/index', function() {
+    return view('index');
+} );
+
+
+// login
+Route::get('/login', function() {
+    return view('login');
+} );
+
+// form
+Route::get('/form', function() {
+    return view('form');
+} );

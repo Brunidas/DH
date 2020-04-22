@@ -1,5 +1,10 @@
 @extends("plantilla")
 
+@section("titulo")
+  Agregar Especialidad
+@endsection
+
+
 @section("principal")
     <form action="/agregarEspecialidad" method="post" >
         {{ csrf_field() }}

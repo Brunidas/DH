@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obras Sociales</title>
-</head>
-<body>
-    
+@extends("plantilla")
+
+@section("titulo")
+  Obras Sociales
+@endsection
+
+@section("principal")
+
     <h1>Obras Sociales:</h1>
     <p>
-
 
         <ul>
             @foreach( $obrasSociales as $obrasSocial)
@@ -21,10 +19,6 @@
             @endforeach
         </ul>
 
-        
-
     </p>
 
-
-</body>
-</html>
+@endsection

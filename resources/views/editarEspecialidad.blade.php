@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar especialidad</title>
-</head>
-<body>
+@extends("plantilla")
+
+@section("titulo")
+  Editar Especialidad
+@endsection
+
+@section("principal")
+
     <form action="/editarEspecialidad" method="post" >
         {{ csrf_field() }}
         {{ $especialidad["name"] }}
@@ -21,5 +21,5 @@
             <input type="submit" value="Guardar Cambios">
         </div>
     </form>
-</body>
-</html>
+
+@endsection

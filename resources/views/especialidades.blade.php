@@ -1,5 +1,9 @@
 @extends("plantilla")
 
+@section("titulo")
+  Especialidades
+@endsection
+
 @section("principal")
 
     <h1>Especialidades:</h1>
