@@ -49,19 +49,16 @@ Route::post('/editarObraSocial', "MedicalInsuranceController@completarEdicion");
 // -----------------------------------
 // usuarios
 Route::get('/usuarios', "UsersController@listado");
+Route::get('/agregarUsuario', function() {
+    return view('agregarUsuario');
+});
+Route::post('/agregarUsuario','UsersController@agregar');
+Route::post('/borrarUsuario','UsersController@borrar');
+Route::get('/editarUsuario/{id}', "UsersController@editar");
+Route::post('/editarUsuario', "UsersController@completarEdicion");
+
+
 
 Route::get('/adminstradores', "AdminsController@listado");
 
 Route::get('/profesionales', "ProfessionalsController@listado");
-
-Route::get('/test1',function(){
-    
-
-    $amdin = App\User::find(1);
-    return $amdin;
-    
-    
-    // $user = App\Admin::find(1);
-    // return $user;
-
-});

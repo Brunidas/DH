@@ -9,11 +9,40 @@
     
     <h1>Usuarios:</h1>
     <p>
+        <form action="/agregarUsuario" method="get">
+            {{ csrf_field() }}
+            <input type="submit" value="Agregar Usuario">
+        </form>
+        
         <a href="/adminstradores">Administradores</a>
         <a href="/profesionales">Profecionales</a>
+
         <ul>
             @foreach( $usuarios as $usuario)
             <li>
+                <form action="/borrarUsuario" method="post">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="id" value= "{{ $usuario->id }}" >
+                    <input type="submit" value="Borrar Usuario">
+                </form>
+
+                <form action="/editarUsuario/{{ $usuario->id }}" method="get">
+                    {{ csrf_field() }}
+                    <input type="submit" value="Editar Usuario">
+                </form>
+
+                <form action="/editarCorreoUsuario" method="get">
+                    {{ csrf_field() }}
+                    <input type="submit" value="Editar Correo">
+                </form>
+
+                <form action="/editarContrasenaUsuario" method="get">
+                    {{ csrf_field() }}
+                    <input type="submit" value="Editar Contraseña">
+                </form>
+
+
+
                 id: {{ $usuario->id }}
                 <br>
                 user: {{ $usuario->user }}
