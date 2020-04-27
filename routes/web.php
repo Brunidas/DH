@@ -58,7 +58,14 @@ Route::get('/editarUsuario/{id}', "UsersController@editar");
 Route::post('/editarUsuario', "UsersController@completarEdicion");
 
 
-
 Route::get('/adminstradores', "AdminsController@listado");
+Route::get('/agregarAdministrador', "AdminsController@listadoUsuarios");
+Route::post('/hacerAdmin',"AdminsController@agregar");
+Route::post('/eliminarAdmin',"AdminsController@eliminar");
+
 
 Route::get('/profesionales', "ProfessionalsController@listado");
+Route::get('/agregarProfesional', "ProfessionalsController@listadoUsuarios");
+Route::get('/hacerProfesional/{id}', "ProfessionalsController@datosNecesarios" );
+Route::post('/agregarProfesional', "ProfessionalsController@agregar");
+Route::post('/eliminarProfesional', "ProfessionalsController@eliminar" );

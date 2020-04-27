@@ -10,10 +10,26 @@
     <h1>Profesionales:</h1>
     
     <p> 
+
+        <form action="/agregarProfesional" method="get">
+            {{ csrf_field() }}
+            <input type="submit" value="Agregar Profesional">
+        </form>
+        
         <ul>
         @foreach( $profesionales as $profesional)
+            <form action="/eliminarProfesional" method="post">
+                {{ csrf_field() }}
+                <input type="hidden" name="id" value= "{{ $profesional->id }}" >
+                <input type="hidden" name="user_id" value= "{{ $profesional->user_id }}" >
+                <input type="submit" value="Eliminar Profesional">
+            </form>
+            
             <li>
-                id: {{ $profesional->id }}
+                
+                id-professional: {{ $profesional->id }}
+                <br>
+                id-user: {{ $profesional->user_id }}
                 <br>
                 user: {{ $profesional->user }}
                 <br>
@@ -30,7 +46,9 @@
 
                 dni : {{ $profesional->dni }}
                 <br>
-                admi? : {{ $profesional->admin }}
+                admi : {{ $profesional->admin }}
+                <br>
+                professional : {{ $profesional->professional }}
                 <br>
                 remember_token : {{ $profesional->remember_token }}
                 <br>

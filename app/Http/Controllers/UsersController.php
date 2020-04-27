@@ -64,9 +64,9 @@ class UsersController extends Controller
     public function borrar( Request $formulario){
         $id = $formulario["id"];
 
-        $obraSocial = User::find( $id );
+        $usurio = User::find( $id );
 
-        $obraSocial->delete();
+        $usurio->delete();
 
         return redirect("/usuarios");
     }

@@ -21,8 +21,7 @@ class MedicalInsuranceController extends Controller
     }
 
     public function agregar ( Request $formulario ){
-        var_dump( $formulario );
-
+ 
         $obraSocialNueva = new MedicalInsurance();
         
         $obraSocialNueva->name = $formulario["name"];

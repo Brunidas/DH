@@ -9,9 +9,23 @@
     
     <h1>Administradores:</h1>
     <p> 
+
+
+        <form action="/agregarAdministrador" method="get">
+            {{ csrf_field() }}
+            <input type="submit" value="Agregar Admin">
+        </form>
+
+
         <ul>
             @foreach( $adminstradores as $admin)
             <li>
+                <form action="/eliminarAdmin" method="post">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="id" value= "{{ $admin->id }}" >
+                    <input type="submit" value="Borrar Admin">
+                </form>
+
                 id: {{ $admin->id }}
                 <br>
                 user: {{ $admin->user }}
@@ -29,7 +43,9 @@
 
                 dni : {{ $admin->dni }}
                 <br>
-                admi? : {{ $admin->admin }}
+                professional : {{ $admin->professional }}
+                <br>
+                admi : {{ $admin->admin }}
                 <br>
                 remember_token : {{ $admin->remember_token }}
                 <br>

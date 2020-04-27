@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('lastname')->nullable();
             $table->integer('dni')->nullable();
             $table->boolean('admin')->nullable();
+            $table->boolean('professional')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

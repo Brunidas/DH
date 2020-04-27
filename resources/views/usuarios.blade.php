@@ -60,7 +60,9 @@
 
                 dni : {{ $usuario->dni }}
                 <br>
-                admi? : {{ $usuario->admin }}
+                admi : {{ $usuario->admin }}
+                <br>
+                professional : {{ $usuario->professional }}
                 <br>
                 remember_token : {{ $usuario->remember_token }}
                 <br>
