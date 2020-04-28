@@ -36,13 +36,10 @@
                 <br>
                 email_verified_at:{{ $admin->email_verified_at }}
                 <br>
-                name: {{ $admin->name }}
-                <br>
-                lastname: {{ $admin->lastname }}
-                <br>
+            
 
-                dni : {{ $admin->dni }}
-                <br>
+            
+
                 professional : {{ $admin->professional }}
                 <br>
                 admi : {{ $admin->admin }}

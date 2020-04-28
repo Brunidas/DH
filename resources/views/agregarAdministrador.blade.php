@@ -31,13 +31,14 @@
                         <br>
                         email_verified_at:{{ $usuario->email_verified_at }}
                         <br>
-                        name: {{ $usuario->name }}
+                        
+                        <!-- name: {{ $usuario->name }}
                         <br>
                         lastname: {{ $usuario->lastname }}
                         <br>
-
                         dni : {{ $usuario->dni }}
-                        <br>
+                        <br> -->
+
                         admi : {{ $usuario->admin }}
                         <br>
                         professional : {{ $usuario->professional }}

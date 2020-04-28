@@ -40,6 +40,9 @@
                     Acciones de usuario normal:
                 </div>
 
+                <div class="">
+                    <a href="/cuenta">Cuenta de Usuario</a>
+                </div>
             </div>
         </div>
     </div>

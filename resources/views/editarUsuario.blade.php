@@ -21,21 +21,21 @@
         <div class="">
             <input type="hidden" name="id" id="" value="{{ $usuario['id'] }}">
 
-            <label for="name">Nombre: </label>
+            <!-- <label for="name">Nombre: </label>
             <input type="text" name="name" id="" value="{{ $usuario['name'] }}">
-            <br>
+            <br> -->
 
-            <label for="lastname">Apellido: </label>
+            <!-- <label for="lastname">Apellido: </label>
             <input type="text" name="lastname" id="" value="{{ $usuario['lastname'] }}">
-            <br>
+            <br> -->
             
             <label for="user">Usuario: </label>
             <input type="text" name="user" id="" value="{{ $usuario['user'] }}">
             <br>
 
-            <label for="dni">Dni: </label>
+            <!-- <label for="dni">Dni: </label>
             <input type="text" name="dni" id="" value="{{ $usuario['dni'] }}">
-            <br>
+            <br> -->
 
         </div>
 

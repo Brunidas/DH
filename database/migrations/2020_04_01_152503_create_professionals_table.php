@@ -15,7 +15,7 @@ class CreateProfessionalsTable extends Migration
     {
         Schema::create('professionals', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('enrollment');
+            $table->bigInteger('enrollment');
 
             $table->unsignedBigInteger('specialties_id');
             $table->foreign('specialties_id')->references('id')->on('specialties');

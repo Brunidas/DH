@@ -26,7 +26,7 @@
                         </div>
 
                         <!-- Name -->
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
 
                             <div class="col-md-6">
@@ -38,11 +38,11 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                        </div> -->
 
 
                        <!-- LastName -->
-                       <div class="form-group row">
+                       <!-- <div class="form-group row">
                             <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Apellido') }}</label>
 
                             <div class="col-md-6">
@@ -54,10 +54,10 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                        </div> -->
 
                        <!-- dni -->
-                       <div class="form-group row">
+                       <!-- <div class="form-group row">
                             <label for="dni" class="col-md-4 col-form-label text-md-right">{{ __('Dni') }}</label>
 
                             <div class="col-md-6">
@@ -69,7 +69,7 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- Email -->
                         <div class="form-group row">

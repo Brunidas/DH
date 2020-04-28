@@ -39,13 +39,9 @@
                 <br>
                 email_verified_at:{{ $profesional->email_verified_at }}
                 <br>
-                name: {{ $profesional->name }}
-                <br>
-                lastname: {{ $profesional->lastname }}
-                <br>
 
-                dni : {{ $profesional->dni }}
-                <br>
+
+
                 admi : {{ $profesional->admin }}
                 <br>
                 professional : {{ $profesional->professional }}

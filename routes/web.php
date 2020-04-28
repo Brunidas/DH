@@ -69,3 +69,11 @@ Route::get('/agregarProfesional', "ProfessionalsController@listadoUsuarios");
 Route::get('/hacerProfesional/{id}', "ProfessionalsController@datosNecesarios" );
 Route::post('/agregarProfesional', "ProfessionalsController@agregar");
 Route::post('/eliminarProfesional', "ProfessionalsController@eliminar" );
+
+
+// -----------------------------------
+// pacientes / cuenta
+Route::get('/cuenta', 'PatientsController@listado');
+
+Route::get('/agregarPaciente/{id}', 'PatientsController@agregarPaciente');
+Route::post('/agregarPaciente', 'PatientsController@completarAgregado');

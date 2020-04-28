@@ -31,15 +31,15 @@
                     <input type="submit" value="Editar Usuario">
                 </form>
 
-                <form action="/editarCorreoUsuario" method="get">
+                <!-- <form action="/editarCorreoUsuario" method="get">
                     {{ csrf_field() }}
                     <input type="submit" value="Editar Correo">
-                </form>
-
+                </form> -->
+<!-- 
                 <form action="/editarContrasenaUsuario" method="get">
                     {{ csrf_field() }}
                     <input type="submit" value="Editar Contraseña">
-                </form>
+                </form> -->
 
 
 
@@ -53,13 +53,14 @@
                 <br>
                 email_verified_at:{{ $usuario->email_verified_at }}
                 <br>
-                name: {{ $usuario->name }}
+                
+                <!-- name: {{ $usuario->name }}
                 <br>
                 lastname: {{ $usuario->lastname }}
                 <br>
-
                 dni : {{ $usuario->dni }}
-                <br>
+                <br> -->
+
                 admi : {{ $usuario->admin }}
                 <br>
                 professional : {{ $usuario->professional }}

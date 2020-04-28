@@ -23,29 +23,29 @@
             <input id="user" type="text" class="" name="user" value=" {{ old('user') }}" >
         </div>
 
-        <br>
+        <!-- <br> -->
         <!-- Name -->
-        <div class="">
+        <!-- <div class="">
             <label for="name" class="">Nombre</label>
             <br>
             <input id="name" type="text" class="" name="name" value="{{ old('name') }}" >
-        </div>
+        </div> -->
 
-        <br>
+        <!-- <br> -->
         <!-- LastName -->
-        <div class="">
+        <!-- <div class="">
             <label for="lastname" class="">Apellido</label>
             <br>
             <input id="lastname" type="text" class="" name="lastname" value="{{ old('lastname') }}" >
-        </div>
+        </div> -->
 
-        <br>    
+        <!-- <br>     -->
         <!-- dni -->
-        <div class="">
+        <!-- <div class="">
             <label for="dni" class="">Dni</label>
             <br>
             <input id="dni" type="text" class="" name="dni" value="{{ old('dni') }}" >
-        </div>
+        </div> -->
 
         <br>
         <!-- Email -->

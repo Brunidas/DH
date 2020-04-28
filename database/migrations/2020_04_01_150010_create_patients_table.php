@@ -18,12 +18,16 @@ class CreatePatientsTable extends Migration
 
             $table->unsignedBigInteger('medical_insurances_id');
             $table->foreign('medical_insurances_id')->references('id')->on('medical_insurances');
-
+            
+            $table->string('name');
+            $table->string('lastname')->nullable();
+            $table->bigInteger('dni')->nullable();
+            
             $table->boolean('account_holder');
-            $table->integer('membership_number');
+            $table->bigInteger('membership_number');
             $table->string('adress');
             $table->string('province'); 
-            $table->integer('phone_number');            
+            $table->bigInteger('phone_number');            
             $table->timestamps();
         
             $table->unsignedBigInteger('user_id');

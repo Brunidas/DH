@@ -6,8 +6,15 @@
     <title>Agregar datos para profesional</title>
 </head>
 <body>
+    <ul>
+        @foreach( $errors->all() as $error )
+        <li>
+            {{ $error }}
+        </li>
+        @endforeach
+    </ul>
     
-    <p>
+    
     <form action="/agregarProfesional" method="post" >
         {{ csrf_field() }}
         <br>
@@ -33,6 +40,6 @@
         </div>
     </form>
     
-    </p>
+
 </body>
 </html>

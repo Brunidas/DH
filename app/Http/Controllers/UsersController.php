@@ -36,23 +36,31 @@ class UsersController extends Controller
             "min" => "El campo :attribute tiene un minimo de :min",
         ];
 
+        // $reglas = [
+        //     'name' => ['required', 'string', 'max:255'],
+        //     'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        //     'password' => ['required', 'string', 'min:8', 'confirmed'],
+        //     'user' => ['required', 'string', 'min:6','unique:users'],
+        //     'lastname' => [ 'required' ,'string','max:255'],
+        //     'dni'=>['required', 'integer','min:0','unique:users' ]
+        // ];
         $reglas = [
-            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'user' => ['required', 'string', 'min:6','unique:users'],
-            'lastname' => [ 'required' ,'string','max:255'],
-            'dni'=>['required', 'integer','min:0','unique:users' ]
+            'user' => ['required', 'string', 'min:6','unique:users']
         ];
+
+
+
 
         $this->validate( $formulario, $reglas, $mensajes);
     
         $usuarioNuevo = new User();
         
         $usuarioNuevo->user = $formulario["user"];
-        $usuarioNuevo->name = $formulario["name"];
-        $usuarioNuevo->lastname = $formulario["lastname"];
-        $usuarioNuevo->dni = $formulario["dni"];
+        // $usuarioNuevo->name = $formulario["name"];
+        // $usuarioNuevo->lastname = $formulario["lastname"];
+        // $usuarioNuevo->dni = $formulario["dni"];
         $usuarioNuevo->email = $formulario["email"];
         $usuarioNuevo->password = Hash::make( $formulario["password"] );
 
@@ -90,7 +98,7 @@ class UsersController extends Controller
 
 
         $mensajes =[
-            "string" => "El campo :attribute debe ser de rexto",
+            "string" => "El campo :attribute debe ser de texto",
             "unique" => "Ya esta en uso",
             "integer" => "El campo :attribute deber ser un entero",
             "required" => "El campo :attribute es obligatorio",
@@ -100,10 +108,10 @@ class UsersController extends Controller
         ];
 
         $reglas = [
-            'name' => ['required', 'string', 'max:255'],
+            // 'name' => ['required', 'string', 'max:255'],
             'user' => ['required', 'string', 'min:6','unique:users'],
-            'lastname' => [ 'required' ,'string','max:255'],
-            'dni'=>['required', 'integer','min:0','unique:users' ]
+            // 'lastname' => [ 'required' ,'string','max:255'],
+            // 'dni'=>['required', 'integer','min:0','unique:users' ]
         ];
     
         $this->validate( $formulario, $reglas, $mensajes);
@@ -111,17 +119,17 @@ class UsersController extends Controller
 
         $id = $formulario['id'];
 
-        $nuevoNombre = $formulario['name'];
-        $nuevoApellido = $formulario["lastname"];
+        // $nuevoNombre = $formulario['name'];
+        // $nuevoApellido = $formulario["lastname"];
         $nuevoUsuario = $formulario["user"]; 
-        $nuevoDni = $formulario["dni"];
+        // $nuevoDni = $formulario["dni"];
 
         $usuario = User::find( $id );
 
-        $usuario->name = $nuevoNombre;
-        $usuario->lastname = $nuevoApellido;
+        // $usuario->name = $nuevoNombre;
+        // $usuario->lastname = $nuevoApellido;
         $usuario->user = $nuevoUsuario;
-        $usuario->dni =$nuevoDni;
+        // $usuario->dni =$nuevoDni;
 
 
         $usuario->save();

@@ -48,13 +48,25 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+
+        // return Validator::make($data, [
+        //     'name' => ['required', 'string', 'max:255'],
+        //     'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        //     'password' => ['required', 'string', 'min:8', 'confirmed'],
+        //     'user' => ['required', 'string', 'min:6','unique:users'],
+        //     'lastname' => [ 'required' ,'string','max:255'],
+        //     'dni'=>['required', 'integer','min:0','unique:users' ]
+        // ]);
+
+
+
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            // 'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'user' => ['required', 'string', 'min:6','unique:users'],
-            'lastname' => [ 'required' ,'string','max:255'],
-            'dni'=>['required', 'integer','min:0','unique:users' ]
+            // 'lastname' => [ 'required' ,'string','max:255'],
+            // 'dni'=>['required', 'integer','min:0','unique:users' ]
         ]);
     }
 
@@ -66,13 +78,24 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        // return User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        //     'user'=>$data['user'],
+        //     'lastname'=>$data['lastname'],
+        //     'dni'=>$data['dni']
+        // ]);
+
+
         return User::create([
-            'name' => $data['name'],
+            // 'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'user'=>$data['user'],
-            'lastname'=>$data['lastname'],
-            'dni'=>$data['dni']
+            // 'lastname'=>$data['lastname'],
+            // 'dni'=>$data['dni']
         ]);
     }
 }

@@ -51,6 +51,27 @@ class ProfessionalsController extends Controller
         $id_especilidad = $formulario["specialty_id"];
         $matricula = $formulario["enrollment"];
 
+
+
+        $mensajes =[
+            "string" => "El campo :attribute debe ser de texto",
+            "unique" => "Ya esta en uso",
+            "integer" => "El campo :attribute deber ser un entero",
+            "required" => "El campo :attribute es obligatorio",
+            "max" => "El campo :attribute tiene un maximo de :max",
+            "email" => "El campo :attribute debe ser un correo electronico",
+            "min" => "El campo :attribute tiene un minimo de :min",
+        ];
+
+        $reglas = [
+            'enrollment'=>['required', 'integer','min:0','unique:professionals' ],
+           
+        ];
+
+        $this->validate( $formulario, $reglas, $mensajes);
+
+
+
         $usuario = User::find( $id_usuario );
         $usuario->admin = False; 
         $usuario->professional = True;
