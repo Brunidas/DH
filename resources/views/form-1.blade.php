@@ -1,5 +1,15 @@
 <?php
-    include_once('clases/conexion.php');
+
+$dsn = "mysql:dbname=dh_salud;host=localhost;port=3306";
+$user = "root";
+$pass = "root";
+
+try {
+    $db = new PDO($dsn,$user,$pass);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (\Exception $e) {
+    echo "Error de conexion :(";exit;
+}
     session_start();
 
 
@@ -209,29 +219,15 @@
 
 
 
+@extends("plantilla")
+
+@section("titulo")
+  Dh-Salud
+@endsection
+
+@section("principal")
 
 
-
-
-
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Css -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-
-    <link rel="stylesheet" href="css/style-forms.css">
-
-    <title>DH Salud</title>
-</head>
-
-
-<body>
     <div class="container">
         <div class="row">
             <!-- Logo DH-Salud -->
@@ -326,8 +322,4 @@
     </div>
 
 
-
-    <?php include_once "components/scripts.php"; ?>
-</body>
-
-</html>
+@endsection

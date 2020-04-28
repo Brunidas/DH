@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Auth::routes();
@@ -31,6 +31,7 @@ Route::post('/agregarEspecialidad', "SpecialtiesController@agregar");
 
 Route::get('/editarEspecialidad/{id}', "SpecialtiesController@editar");
 Route::post('/editarEspecialidad', "SpecialtiesController@completarEdicion");
+
 
 // -----------------------------------
 // obras sociales
@@ -59,6 +60,11 @@ Route::get('/index', function() {
     return view('index');
 } );
 
+// faq
+Route::get('/faq', function() {
+    return view('faq');
+} );
+
 
 // login
 Route::get('/login', function() {
@@ -68,4 +74,19 @@ Route::get('/login', function() {
 // form
 Route::get('/form', function() {
     return view('form');
+} );
+
+// form1
+Route::get('/form-1', function() {
+    return view('form-1');
+} );
+
+// form2
+Route::get('/form-2', function() {
+    return view('form-2');
+} );
+
+// home
+Route::get('/home', function() {
+    return view('home');
 } );
