@@ -57,13 +57,13 @@ Route::post('/borrarUsuario','UsersController@borrar');
 Route::get('/editarUsuario/{id}', "UsersController@editar");
 Route::post('/editarUsuario', "UsersController@completarEdicion");
 
-
+// admins
 Route::get('/adminstradores', "AdminsController@listado");
 Route::get('/agregarAdministrador', "AdminsController@listadoUsuarios");
 Route::post('/hacerAdmin',"AdminsController@agregar");
 Route::post('/eliminarAdmin',"AdminsController@eliminar");
 
-
+// profesionales
 Route::get('/profesionales', "ProfessionalsController@listado");
 Route::get('/agregarProfesional', "ProfessionalsController@listadoUsuarios");
 Route::get('/hacerProfesional/{id}', "ProfessionalsController@datosNecesarios" );
@@ -77,3 +77,11 @@ Route::get('/cuenta', 'PatientsController@listado');
 
 Route::get('/agregarPaciente/{id}', 'PatientsController@agregarPaciente');
 Route::post('/agregarPaciente', 'PatientsController@completarAgregado');
+Route::post('/borrarPaciente', 'PatientsController@borrar');
+
+Route::get('/editarPaciente/{id}', "PatientsController@editar");
+Route::post('/editarPaciente', "PatientsController@completarEdicion");
+
+// -----------------------------------
+// turnos
+Route::get('/crearTurno/{id}', 'MeetingsController@nuevo');

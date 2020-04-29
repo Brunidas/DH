@@ -52,7 +52,7 @@ class PatientsController extends Controller
 
         $mensajes =[
             "string" => "El campo :attribute debe ser de texto",
-            "unique" => "Ya esta en uso",
+            "unique" => ":attribute ya esta en uso",
             "integer" => "El campo :attribute deber ser un entero",
             "required" => "El campo :attribute es obligatorio",
             "max" => "El campo :attribute tiene un maximo de :max",
@@ -84,7 +84,7 @@ class PatientsController extends Controller
         $nuevoPaciente->adress = $formulario["adress"];
         $nuevoPaciente->province = $formulario["province"];
         $nuevoPaciente->phone_number = $formulario["phone_number"];
-        $nuevoPaciente->phone_number = $formulario["phone_number"];
+
         
         
         $pacientesDeUsuario = DB::table('patients')->where('user_id', $formulario["user_id"])->get();
@@ -114,6 +114,98 @@ class PatientsController extends Controller
         return redirect("/cuenta");
     }
 
+
+    public function borrar( Request $formulario ){
+        $id = $formulario["id"];
+        
+        $paciente = Patient::find( $id );
+
+        $paciente->delete();
+
+        return redirect("/cuenta");
+    }
+
+
+    public function editar( $id ){
+
+        $paciente = Patient::find( $id );
+
+        $obrasSociales = MedicalInsurance::all();
+        
+        $vac = compact( "paciente" , "obrasSociales" );
+
+        return view("editarPaciente", $vac);
+
+    }
+
+
+
+    public function completarEdicion( Request $formulario ){
+        
+        
+        $mensajes =[
+            "string" => "El campo :attribute debe ser de texto",
+            "unique" => ":attribute ya esta en uso",
+            "integer" => "El campo :attribute deber ser un entero",
+            "required" => "El campo :attribute es obligatorio",
+            "max" => "El campo :attribute tiene un maximo de :max",
+            "email" => "El campo :attribute debe ser un correo electronico",
+            "min" => "El campo :attribute tiene un minimo de :min",
+        ];
+        
+        $reglas = [
+            'name' => ['required', 'string', 'max:255'],
+            'lastname' => [ 'required' ,'string','max:255'],
+            'dni'=>['required', 'integer','min:0' ],
+            'membership_number' => ['required', 'integer','min:0' ],
+            'adress' => ['required', 'string', 'max:255'],
+            'province' => ['required', 'string', 'max:255'],
+            'phone_number'=>['required', 'integer','min:0' ],
+        ];
+
+        $this->validate( $formulario, $reglas, $mensajes);
+
+        $id = $formulario["id"];
+
+        $paciente = Patient::find( $id );
+
+        $paciente->name = $formulario["name"];
+        $paciente->lastname = $formulario["lastname"];
+        $paciente->dni = $formulario["dni"];
+        $paciente->membership_number = $formulario["membership_number"];
+        $paciente->adress = $formulario["adress"];
+        $paciente->province = $formulario["province"];
+        $paciente->phone_number = $formulario["phone_number"];
+        
+
+
+        if ( $paciente['account_holder'] == True ){
+
+            echo $formulario["medical_insurances_id"] . "<br>";
+            
+            
+            $todosLosPacientes = Patient::all();
+
+            foreach ( $todosLosPacientes as $unPaciente) {
+                if ( $unPaciente->user_id = $formulario["user_id"] ){
+                    echo $unPaciente->name ." :";
+                    echo $unPaciente->medical_insurances_id ."<br>";
+                    
+                    $unPaciente->medical_insurances_id = $formulario["medical_insurances_id"];
+                    
+                    $unPaciente->save();
+                    
+                }
+            }
+
+
+        }
+
+        $paciente->save();
+
+
+        return redirect("/cuenta");
+    }
 
 
 }

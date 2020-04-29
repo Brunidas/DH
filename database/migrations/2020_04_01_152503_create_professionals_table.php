@@ -17,6 +17,10 @@ class CreateProfessionalsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('enrollment');
 
+            $table->string('name');
+            $table->string('lastname')->nullable();
+            $table->bigInteger('phone_number');  
+
             $table->unsignedBigInteger('specialties_id');
             $table->foreign('specialties_id')->references('id')->on('specialties');
 

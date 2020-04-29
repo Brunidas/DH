@@ -15,6 +15,11 @@
         <input type="submit" value="Crear Paciente">
     </form>
 
+    <!-- <form action="/cambiarCorreo/{{ auth()->user()->id }}" method="get">
+        {{ csrf_field() }}
+        <input type="submit" value="Crear Paciente">
+    </form> -->
+
 
 
     <div class="">
@@ -27,8 +32,24 @@
     <ul>
 
         @foreach( $pacientes as $paciente )
-            <li>
+            <li>                
                 @if( $paciente->user_id == auth()->user()->id )
+                    <form action="/editarPaciente/{{ $paciente->id }}" method="get">
+                        {{ csrf_field() }}
+                        <input type="submit" value="Editar Usuario">
+                    </form>
+                    
+                    @if ( $paciente->account_holder == false )
+                        
+                        <form action="/borrarPaciente" method="post">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="id" value= "{{$paciente->id}}" >
+                            <input type="submit" value="Borrar Paciente">
+                        </form>
+                    
+                    @endif 
+                    
+                    
                     Nombre: {{ $paciente->name}} 
                     <br>
                     Apellido: {{ $paciente->lastname}} 

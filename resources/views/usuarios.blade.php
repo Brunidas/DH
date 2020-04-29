@@ -31,18 +31,6 @@
                     <input type="submit" value="Editar Usuario">
                 </form>
 
-                <!-- <form action="/editarCorreoUsuario" method="get">
-                    {{ csrf_field() }}
-                    <input type="submit" value="Editar Correo">
-                </form> -->
-<!-- 
-                <form action="/editarContrasenaUsuario" method="get">
-                    {{ csrf_field() }}
-                    <input type="submit" value="Editar Contraseña">
-                </form> -->
-
-
-
                 id: {{ $usuario->id }}
                 <br>
                 user: {{ $usuario->user }}
@@ -54,12 +42,6 @@
                 email_verified_at:{{ $usuario->email_verified_at }}
                 <br>
                 
-                <!-- name: {{ $usuario->name }}
-                <br>
-                lastname: {{ $usuario->lastname }}
-                <br>
-                dni : {{ $usuario->dni }}
-                <br> -->
 
                 admi : {{ $usuario->admin }}
                 <br>

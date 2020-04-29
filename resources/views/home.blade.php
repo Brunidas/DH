@@ -43,6 +43,18 @@
                 <div class="">
                     <a href="/cuenta">Cuenta de Usuario</a>
                 </div>
+
+                @foreach( $especialidades as $especialidad)
+                    <!-- <form action="/crearTurno/{{$especialidad->id}}" method="get">
+                    
+                    
+                    </form> -->
+                    <a href="/crearTurno/{{$especialidad->id}}">
+                        {{ $especialidad->name }}
+                    </a>
+
+                @endforeach
+
             </div>
         </div>
     </div>

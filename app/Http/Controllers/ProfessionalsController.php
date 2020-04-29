@@ -50,12 +50,14 @@ class ProfessionalsController extends Controller
         $id_usuario = $formulario["id"];
         $id_especilidad = $formulario["specialty_id"];
         $matricula = $formulario["enrollment"];
-
+        $name= $formulario["name"];
+        $lastname= $formulario["lastname"];
+        $phone_number= $formulario["phone_number"];
 
 
         $mensajes =[
             "string" => "El campo :attribute debe ser de texto",
-            "unique" => "Ya esta en uso",
+            "unique" => ":attribute ya esta en uso",
             "integer" => "El campo :attribute deber ser un entero",
             "required" => "El campo :attribute es obligatorio",
             "max" => "El campo :attribute tiene un maximo de :max",
@@ -65,7 +67,9 @@ class ProfessionalsController extends Controller
 
         $reglas = [
             'enrollment'=>['required', 'integer','min:0','unique:professionals' ],
-           
+            'name' => ['required', 'string', 'max:255'],
+            'lastname' => [ 'required' ,'string','max:255'],
+            'phone_number'=>['required', 'integer','min:0','unique:patients' ],
         ];
 
         $this->validate( $formulario, $reglas, $mensajes);
@@ -81,7 +85,10 @@ class ProfessionalsController extends Controller
         $nuevoProfesional->enrollment = $matricula;
         $nuevoProfesional->specialties_id = $id_especilidad;
         $nuevoProfesional->user_id = $id_usuario;
-
+        
+        $nuevoProfesional->name = $name;
+        $nuevoProfesional->lastname = $lastname;
+        $nuevoProfesional->phone_number = $phone_number;
 
 
         $nuevoProfesional->save();

@@ -31,6 +31,14 @@
                 <br>
                 id-user: {{ $profesional->user_id }}
                 <br>
+
+                name: {{ $profesional->name }}
+                <br>
+                lastname {{ $profesional->lastname }}
+                <br>
+                phone_number: {{ $profesional->phone_number }}
+                <br>
+
                 user: {{ $profesional->user }}
                 <br>
                 password {{ $profesional->password }}

@@ -25,6 +25,19 @@
             <input type="text" name="enrollment" id="" value="">
             <br>
 
+            <label for="name">Nombre: </label>
+            <input type="text" name="name" id="" value="">
+            <br>
+
+            <label for="lastname">Apellido: </label>
+            <input type="text" name="lastname" id="" value="">
+            <br>
+
+            <label for="phone_number">Numero de telefono: </label>
+            <input type="text" name="phone_number" id="" value="">
+            <br>
+
+
             <label for="specialty">Elegir una especialidad</label>
             <select id="specialty" name="specialty_id">
                 @foreach ( $especialidades as $especialidad)

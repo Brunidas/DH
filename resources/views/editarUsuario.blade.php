@@ -19,23 +19,13 @@
         {{ csrf_field() }}
         <br>
         <div class="">
-            <input type="hidden" name="id" id="" value="{{ $usuario['id'] }}">
+            <!-- <input type="hidden" name="id" id="" value="{{ $usuario['id'] }}"> -->
 
-            <!-- <label for="name">Nombre: </label>
-            <input type="text" name="name" id="" value="{{ $usuario['name'] }}">
-            <br> -->
-
-            <!-- <label for="lastname">Apellido: </label>
-            <input type="text" name="lastname" id="" value="{{ $usuario['lastname'] }}">
-            <br> -->
             
             <label for="user">Usuario: </label>
             <input type="text" name="user" id="" value="{{ $usuario['user'] }}">
             <br>
 
-            <!-- <label for="dni">Dni: </label>
-            <input type="text" name="dni" id="" value="{{ $usuario['dni'] }}">
-            <br> -->
 
         </div>
 
