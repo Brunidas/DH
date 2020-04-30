@@ -85,3 +85,12 @@ Route::post('/editarPaciente', "PatientsController@completarEdicion");
 // -----------------------------------
 // turnos
 Route::get('/crearTurno/{id}', 'MeetingsController@nuevo');
+
+
+// -----------------------------------
+// fechas
+Route::get('/fechas',"DatesController@listado");
+Route::post('/agregarDias',"DatesController@agregarDias");
+
+// -----------------------------------
+// horas

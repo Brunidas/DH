@@ -23,7 +23,12 @@ class CreateMeetingsTable extends Migration
             $table->unsignedBigInteger('patients_id');
             $table->foreign('patients_id')->references('id')->on('patients');
 
-            
+            $table->unsignedBigInteger('dates_id');
+            $table->foreign('dates_id')->references('id')->on('dates');
+
+            $table->unsignedBigInteger('hours_id');
+            $table->foreign('hours_id')->references('id')->on('hours');
+
             $table->timestamps();
         });
     }
