@@ -84,13 +84,17 @@ Route::post('/editarPaciente', "PatientsController@completarEdicion");
 
 // -----------------------------------
 // turnos
-Route::get('/crearTurno/{id}', 'MeetingsController@nuevo');
+Route::get('/turnosProfesional/{id}', "MeetingsController@listadoProfesional" );
+Route::get('/crearTurno/{id}', "MeetingsController@crearTurno" );
+Route::post('/crearTurno', "MeetingsController@completarAgregado" );
+Route::post('/eliminarTurno', "MeetingsController@eliminarTurno" );
 
+Route::get('/turnosUsuario/{id}', "MeetingsController@listadoUsuario" );
 
+Route::get('/pedirTurno/{id}', "MeetingsController@turnoUsuario" );
+Route::post('/pedirTurno/{id}', "MeetingsController@turnoUsuarioCompletar" );
 // -----------------------------------
 // fechas
 Route::get('/fechas',"DatesController@listado");
 Route::post('/agregarDias',"DatesController@agregarDias");
 
-// -----------------------------------
-// horas

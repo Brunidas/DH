@@ -14,9 +14,16 @@ class User extends Authenticatable
     public function admin(){
         return $this->hasOne('App\Admin');
     }
-
-
     
+    public function professional(){
+        return $this->hasOne('App\Professional',"user_id");
+    }
+
+
+    public function patients(){
+        return $this->hasMany('App\Patient','user_id');
+    }
+
     use Notifiable;
 
     /**

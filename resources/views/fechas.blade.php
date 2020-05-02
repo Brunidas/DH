@@ -17,7 +17,7 @@
     <ul>
         @foreach( $fechas as $fecha)
         <li>
-             fecha: {{ $fecha->date }}
+            {{ 'fecha:' . $fecha->date . "dia de la semana: " . $fecha->weekday }}
         </li>
 
         @endforeach

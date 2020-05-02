@@ -3,31 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuevo Turno</title>
+    <title>Crear Turno</title>
 </head>
 <body>
-    <h1> {{ $especialidad->name }} </h1>
 
-    <label for="professional">Elegir un profesional </label>
-    <select id="professional" name="professional_id">
-        @foreach ( $profesionales as $profesional)
-            @if ( $especialidad->id == $profesional->specialties_id )     
-                <option name="professional_id" value="{{ $profesional->id }}">{{ "$profesional->name $profesional->lastname" }}</option>
-            @endif
+    <h1> {{ "@" }}{{ auth()->user()->user }} </h1>
+    <h1>Crear Turno Nuevo</h1>
+    @if ( $error != [] )
+        {{ "FECHA NO VALIDA" }}
+    @endif
+
+    <form action="/crearTurno" method="post">
+        {{ csrf_field() }}
+
+        <label for="hours">Elegir horario</label>
+        <select id="hours" name="hours_id">
+            @foreach ( $horas as $hora )
+                <option name="hours_id" value="{{ $hora->id }}">{{ $hora->time }}</option>
+            @endforeach
+        </select>
+        <br>
+
+        <label for="date">Elegir fecha:</label>
+        <br>
+        @foreach ( $fechas as $fecha )
+            <input type="radio" name="dates_id" id="date" value="{{$fecha->id}}">
+            {{ $fecha->weekday. " ". $fecha->date }}
+            <br>
         @endforeach
-    </select>
+        {{ $fechas->links() }} 
+        <br>
+
+        <input type="hidden" name="id" value="{{ $profesionalActual->id }}">
+        
+
+        <input type="submit" value="Crear Turno">
+    </form> 
+
+    <br>
+    {{ "Turnos Ya Creados: "}} <br>
+    @foreach( $profesionalActual->meetings as $turno )
+        <br>
+        {{ $turno->date->weekday ." ". $turno->date->date }} <br>
+        {{ $turno->hour->time }}<br>
+    @endforeach
     <br>
 
-    <label for="patient">Elegir un paciente </label>
-    <select id="patient" name="patient_id">
-        @foreach ( $pacientes as $paciente )
-            @if ( $paciente->user_id == auth()->user()->id )
-                <option name="patient_id" value="{{ $paciente->id }}">{{ "$paciente->name $paciente->lastname" }}</option>
-            @endif
-        @endforeach
     
-    </select>
-    <br>
-
 </body>
 </html>

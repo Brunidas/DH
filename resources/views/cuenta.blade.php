@@ -32,8 +32,9 @@
     <ul>
 
         @foreach( $pacientes as $paciente )
-            <li>                
-                @if( $paciente->user_id == auth()->user()->id )
+            @if( $paciente->user_id == auth()->user()->id )
+                <li>                
+                    
                     <form action="/editarPaciente/{{ $paciente->id }}" method="get">
                         {{ csrf_field() }}
                         <input type="submit" value="Editar Usuario">
@@ -48,7 +49,6 @@
                         </form>
                     
                     @endif 
-                    
                     
                     Nombre: {{ $paciente->name}} 
                     <br>
@@ -66,15 +66,12 @@
                     <br>
                     Titular de la cuenta: {{ $paciente->account_holder }} 
                     <br>
-                    Obra Social :
-                    @foreach ( $obrasSociales as $obrasSocial )
-                        @if( $paciente->medical_insurances_id == $obrasSocial->id )
-                            {{ $obrasSocial->name }} 
-                        @endif
-                    @endforeach
-                @endif
-            </li>
-            <br>
+                    Obra Social : {{ $paciente->medicalInsurance->name }} 
+
+                
+                </li>
+                <br>
+            @endif
         @endforeach
     </ul>
 

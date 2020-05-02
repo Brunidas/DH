@@ -52,15 +52,27 @@
                     <a href="/cuenta">Cuenta de Usuario</a>
                 </div>
 
- 
+                <div class="">
+                    <a href="/turnosUsuario/{{auth()->user()->id}}">Ver turnos</a>
+                </div>
 
                 @foreach( $especialidades as $especialidad)
    
-                    <a href="/crearTurno/{{$especialidad->id}}">
+                    <a href="pedirTurno/{{$especialidad->id}}">
                         {{ $especialidad->name }}
                     </a>
 
                 @endforeach
+
+                <hr>
+                <div class="">
+                    Acciones de profesional
+                </div>
+
+                <div class="">
+                    <a href="/turnosProfesional/{{auth()->user()->id}}">Mis turnos</a>
+                </div>
+
 
             </div>
         </div>

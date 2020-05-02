@@ -17,6 +17,7 @@ class CreateDatesTable extends Migration
             $table->bigIncrements('id');
 
             $table->date("date");
+            $table->string("weekday");
 
             $table->timestamps();
         });

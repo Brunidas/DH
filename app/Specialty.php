@@ -15,4 +15,8 @@ class Specialty extends Model
     public function getNombreEspecialidad(){
         return "El nombre de la especialidad es: ". $this->name ;
     }
+
+    public function professional(){
+        return $this->hasMany('App\Professional','specialties_id');
+    }
 }

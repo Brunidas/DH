@@ -45,9 +45,37 @@ class DatesController extends Controller
                 if ( $esDomingo==False && $esSabado==False ){
 
                     $fechaParaAgregar = new Date();
-    
+
+
+                    if ( $nuevoDia->isMonday() ){
+
+                        $fechaParaAgregar->weekday = "Lunes";
+
+                    } elseif( $nuevoDia->isTuesday() ){
+
+                        $fechaParaAgregar->weekday = "Martes";
+
+                    } elseif( $nuevoDia->isWednesday() ){
+
+                        $fechaParaAgregar->weekday = "Miercoles";
+                        
+                    }  elseif( $nuevoDia->isThursday() ){
+
+                        $fechaParaAgregar->weekday = "Jueves";
+                        
+                    }  elseif( $nuevoDia->isFriday() ){
+
+                        $fechaParaAgregar->weekday = "Viernes";
+        
+                    } 
+
+
+
+                
                     $fechaParaAgregar->date = $nuevoDia->format('Y-m-d');
                     
+                    // echo  $fechaParaAgregar->date ." es:".$fechaParaAgregar->weekday ."<br>";
+
                     $fechaParaAgregar->save();
                 }
 
@@ -56,8 +84,8 @@ class DatesController extends Controller
 
             }
 
-
-        }else{
+        
+        } else{
             
             // traigo el ultima dia 
             $ultimaFecha = $fechas->last();
@@ -84,8 +112,34 @@ class DatesController extends Controller
                 if ( $esDomingo==False && $esSabado==False ){
 
                     $fechaParaAgregar = new Date();
-    
+                    
+
+                    if ( $nuevoDia->isMonday() ){
+
+                        $fechaParaAgregar->weekday = "Lunes";
+
+                    } elseif( $nuevoDia->isTuesday() ){
+
+                        $fechaParaAgregar->weekday = "Martes";
+
+                    } elseif( $nuevoDia->isWednesday() ){
+
+                        $fechaParaAgregar->weekday = "Miercoles";
+                        
+                    }  elseif( $nuevoDia->isThursday() ){
+
+                        $fechaParaAgregar->weekday = "Jueves";
+                        
+                    }  elseif( $nuevoDia->isFriday() ){
+
+                        $fechaParaAgregar->weekday = "Viernes";
+        
+                    } 
+
+
                     $fechaParaAgregar->date = $nuevoDia->format('Y-m-d');
+                    
+                    // echo "fecha: ".$fechaParaAgregar->date . $fechaParaAgregar->weekday."<br>"; 
                     
                     $fechaParaAgregar->save();
                 }
