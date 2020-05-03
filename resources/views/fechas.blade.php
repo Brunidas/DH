@@ -1,31 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nueva Fecha</title>
-</head>
-<body>
 
-    <h1> Fechas </h1>
-        
-    <form action="/agregarDias" method="post">
-            {{ csrf_field() }}
-            <input type="submit" value="Agregar Dias">
-    </form>
-    
-    <ul>
-        @foreach( $fechas as $fecha)
-        <li>
-            {{ 'fecha:' . $fecha->date . "dia de la semana: " . $fecha->weekday }}
-        </li>
-
-        @endforeach
-    </ul>
-
-    <!-- <input type="date" name="" id="" > -->
-    <!-- <input type="time" name="" id=""> -->
+@extends('layouts.app')
 
 
-</body>
-</html>
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card"> 
+                <div class="card-header bg-info text-white"><h3>Fechas</h3></div>
+                    <div class="card-body">
+
+
+                        <form action="/agregarDias" method="post">
+                            {{ csrf_field() }}
+                            <input  class="btn btn-success " type="submit" value="Agregar Dias">
+                        </form>
+                        <br>
+                        <ul>
+                            @foreach( $fechas as $fecha)
+                            <li>
+                                {{ 'fecha:' . $fecha->date . "dia de la semana: " . $fecha->weekday }}
+                            </li>
+
+                            @endforeach
+                        </ul>
+
+
+
+
+
+
+
+
+                    </div> 
+                </div>    
+            </div>
+        </div>
+    </div>
+</div>   
+@endsection

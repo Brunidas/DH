@@ -23,39 +23,46 @@ class MeetingsController extends Controller
         $profesionales = Professional::all();
 
         foreach ($profesionales as $profesional ) {
+            // echo "$profesional <br>";
+            
             if ( $profesional->user_id == $id ) {
+                // echo "hola?";
+                
                 $profesionalActual = $profesional;
             }
         }
         
+        // echo "$profesionalActual  <br>";
+        // echo auth()->user()->id ."<br>";
 
         $vac = compact("profesionalActual");
-
-        return view("turnosProfesional", $vac);
+        return view("/turnosProfesional", $vac);
 
     }   
 
 
 
-    public function crearTurno( $id ){
+    public function crearTurno( $id_usuario, $id_profesional ){
         
+        // echo "id_usuario: $id_usuario <br>";
+        // echo "id_profesional: $id_profesional <br>";
 
         $horas = Hour::all();
         
         $fechas = Date::paginate(5);
 
 
-        $profesionales = Professional::all();
+        $profesional = Professional::find( $id_profesional );
 
-        foreach ($profesionales as $profesional ) {
-            if ( $profesional->user_id == $id ) {
-                $profesionalActual = $profesional;
-            }
-        }
+        // foreach ($profesionales as $profesional ) {
+        //     if ( $profesional->user_id == $id ) {
+        //         $profesionalActual = $profesional;
+        //     }
+        // }
         
 
         $error = [];
-        $vac = compact("profesionalActual","horas","fechas","error");
+        $vac = compact("profesional","horas","fechas","error");
 
         return view("/crearTurno", $vac);
 
@@ -94,11 +101,16 @@ class MeetingsController extends Controller
         $nuevoTurno->hours_id = $formulario["hours_id"];
         $nuevoTurno->dates_id = $formulario["dates_id"];
         
+
+        // echo "id profesional:" .$formulario["id"] ."<br>";
+        // echo "id profesional:" .$formulario["id"] ."<br>";
+
         $nuevoTurno->save();
         
-        $id = $formulario['hours_id'];
+        $id_user = auth()->user()->id ;
+        // echo $id_user;
 
-        return redirect("/turnosProfesional/$id");
+        return redirect("/turnosProfesional/$id_user");
 
 
     }
@@ -116,6 +128,12 @@ class MeetingsController extends Controller
         return redirect("/turnosProfesional/$id_user");
 
     }
+
+
+
+
+    // ----------------------------------------------------------------------
+
 
 
     public function listadoUsuario( $id ){
@@ -150,10 +168,10 @@ class MeetingsController extends Controller
 
         $turno->save();
 
-        $id_user = $formulario["id_user"];
+        $id = $formulario["user_id"];
 
-        return redirect("/turnosUsuario/$id_user");
-
+        // return redirect("/turnosProfesional");
+        return view("/turnosProfesional/$id" );
     }
     
 

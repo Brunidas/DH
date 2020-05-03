@@ -1,40 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Cuenta Usuario </title>
-</head>
-<body>
-    
-    <h1> {{ "@" }}{{ auth()->user()->user }} </h1>
-    <h1> Turnos De La Cuenta Usuario</h1>
 
-    @foreach( $pacientes as $paciente )
-        <h3>
-            {{"Paciente: ". $paciente->name . " ". $paciente->lastname }}
-        </h3>
+@extends('layouts.app')
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card"> 
+                <div class="card-header bg-dark text-white "><h3>Turnos De Cuenta</h3></div>
+                    <div class="card-body">
 
-        {{" Turnos: "}}
-        <ul>
-            @foreach( $paciente->meetings as $turno )
-                <li>
-                    {{ "Fecha y hora: ".$turno->date->weekday . " ". $turno->date->date." ".$turno->hour->time  }}
-                    <br>
-                    {{"Profesional: ". $turno->professional->name." ".$turno->professional->lastname }}
-                    <br>
-                    {{"Espacialidad: ". $turno->professional->specialty->name }}
-                    <br>
-                </li>
-                <br>
-            @endforeach
-        </ul>
+                        @foreach( $pacientes as $paciente )
+                            <div class="card">
+                                <div class="card-header bg-secondary text-white">
+                                    <h4>{{"Turnos de: ". $paciente->name . " ". $paciente->lastname }}</h4>
+                                </div>
 
+                                <div class="card-body">
+                                    @foreach( $paciente->meetings as $turno )
+                                        <ul class="list-group">
+                                            <li class="list-group-item" >
+                                                {{ "Fecha y hora: ".$turno->date->weekday . " ". $turno->date->date." ".$turno->hour->time  }}
+                                                <br>
+                                                {{"Profesional: ". $turno->professional->name." ".$turno->professional->lastname }}
+                                                <br>
+                                                {{"Espacialidad: ". $turno->professional->specialty->name }}
+                                                <br>
+                                            </li>
+                                        </ul>
+                                        <br>
+                                    @endforeach
 
-    @endforeach
+                                </div> 
+                            </div>    
+                        @endforeach
 
-
-
-
-</body>
-</html>
+                    </div> 
+                </div>    
+            </div>
+        </div>
+    </div>
+</div>   
+@endsection

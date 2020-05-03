@@ -1,65 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administradores</title>
-</head>
-<body>
-    
-    <h1>Administradores:</h1>
-    <p> 
+@extends('layouts.app')
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card"> 
+                <div class="card-header bg-info text-white"><h3>Administradores</h3></div>
+                    <div class="card-body">
 
 
-        <form action="/agregarAdministrador" method="get">
-            {{ csrf_field() }}
-            <input type="submit" value="Agregar Admin">
-        </form>
 
 
-        <ul>
-            @foreach( $adminstradores as $admin)
-            <li>
-                <form action="/eliminarAdmin" method="post">
-                    {{ csrf_field() }}
-                    <input type="hidden" name="id" value= "{{ $admin->id }}" >
-                    <input type="submit" value="Borrar Admin">
-                </form>
-
-                id: {{ $admin->id }}
-                <br>
-                user: {{ $admin->user }}
-                <br>
-                password {{ $admin->password }}
-                <br>
-                email: {{ $admin->email }}
-                <br>
-                email_verified_at:{{ $admin->email_verified_at }}
-                <br>
-            
-
-            
-
-                professional : {{ $admin->professional }}
-                <br>
-                admi : {{ $admin->admin }}
-                <br>
-                remember_token : {{ $admin->remember_token }}
-                <br>
-                created_at : {{ $admin->created_at }}
-                <br>
-                updated_at : {{ $admin->updated_at }}
+                        <form action="/agregarAdministrador" method="get">
+                            {{ csrf_field() }}
+                            <input  class="btn btn-success mb-2" type="submit" value="Agregar Admin">
+                        </form>
 
 
-            </li>
-            <br>
-            @endforeach
-        </ul>
+                        @foreach( $adminstradores as $admin )
+                            <div class="card">
+                                <div class="card-body">
+                                
+                                    <h5 class="card-title">{{ "# ".$admin->id }}</h5>
+                                    <p class="card-text">
+                                        {{ "@".$admin->user }} <br>
+                                        {{ $admin->email }}
+                                    </p>
 
-        
+                                    <form class="d-inline" action="/eliminarAdmin" method="post">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="id" value= "{{ $admin->id }}" >
+                                        <input class="d-inline btn btn-danger"type="submit" value="Borrar">
+                                    </form>
 
-    </p>
+
+                                </div>
 
 
-</body>
-</html>
+                            </div>
+                        @endforeach
+
+
+
+
+                    </div> 
+                </div>    
+            </div>
+        </div>
+    </div>
+</div>   
+@endsection                      

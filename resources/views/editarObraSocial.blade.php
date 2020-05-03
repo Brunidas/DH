@@ -1,24 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar obra social</title>
-</head>
-<body>
-    <form action="/editarObraSocial" method="post" >
-        {{ csrf_field() }}
-        {{ $obraSocial["name"] }}
-        <br>
-        <div class="">
-            <label for="name">Nuevo Nombre De Obra Social</label>
-            <input type="text" name="name" id="" value="">
-            <input type="hidden" name="id" id="" value="{{ $obraSocial['id'] }}">
-        </div>
+@extends('layouts.app')
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card"> 
+                <div class="card-header bg-info text-white"><h3>{{ $obraSocial["name"] }}</h3></div>
+                    <div class="card-body">
+                    
+                        
 
-        <div class="">
-            <input type="submit" value="Guardar Cambios">
+                        <form action="/editarObraSocial" method="post" >
+                            {{ csrf_field() }}
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+
+
+                                    <span class="input-group-text" id="basic-addon1">Nuevo Nombre</span>
+                                
+                                
+                                </div>
+
+                                <input type="text" class="form-control" name="name">
+                                <input type="hidden" name="id" id="" value="{{ $obraSocial['id'] }}">
+                            
+                            </div>
+                            
+                            <div class="">
+                                <input class="btn btn-primary" type="submit" value="Guardar Cambios">
+                            </div>
+
+                        </form>
+
+
+
+
+                    </div> 
+                </div>    
+            </div>
         </div>
-    </form>
-</body>
-</html>
+    </div>
+</div>   
+@endsection
+
+
+
+
+

@@ -1,0 +1,43 @@
+.container{
+    border-radius: 5px;
+}
+
+._bf_turnoTextoDebajoBoton{
+    color:#293952;
+    font-size: 13px;
+}
+
+._bf_turnoTitulo{
+    color:#293952;
+}
+
+._bf_turnoLinks{
+    color:#293952;
+    font-size: 15px;
+}
+
+._bf_turnoImportante{
+    color: red;
+    border: solid 1px red;
+    border-radius: 5px;;
+}
+
+
+._bf_turnoTextArea{
+    height: 70px;
+    max-height: 100px;
+}
+
+
+._bf_turnoBoton{
+
+    color: #fff;
+    font-size: 20px;
+    background: rgb(117,13,138);
+    background: linear-gradient(90deg, rgba(117,13,138,1) 0%, rgba(0,191,203,1) 100%); 
+    border: none;
+    border-radius: 10px;
+    width: 210px;
+    
+    
+}

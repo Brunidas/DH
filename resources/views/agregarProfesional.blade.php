@@ -1,64 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar Admin</title>
-</head>
-<body>
-    
-    <h1>Usuarios para hacer profesionales:</h1>
-    <p>
-        <ul>
-            @foreach( $usuarios as $usuario)
-                @if( $usuario->admin == 0 and $usuario->professional == 0 )
-                    <li>
-                        <form action="/hacerProfesional/{{ $usuario->id }}" method="get">
-                            {{ csrf_field() }}
-                            <input type="submit" value="Hacer Profesional">
-                        </form>
+@extends('layouts.app')
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card"> 
+                <div class="card-header bg-info text-white"><h3>Usuarios Para Hacer Profesional</h3></div>
+                    <div class="card-body">
+
+                        @foreach( $usuarios as $usuario)
+                            
+                            @if( $usuario->admin == 0 and $usuario->professional == 0 )
+                                <div class="card">
+                                    <div class="card-body">
+                                    
+                                        <h5 class="card-title">{{ "# ".$usuario->id }}</h5>
+                                        <p class="card-text">
+                                            {{ "@".$usuario->user }} <br>
+                                            {{ $usuario->email }}
+                                        </p>
+
+                
+                                    
+                                        <form action="/hacerProfesional/{{ $usuario->id }}" method="get">
+                                            {{ csrf_field() }}
+                                            <input class="d-inline btn btn-primary" type="submit" value="Hacer Profesional">
+                                        </form>
+
+                                    </div>
 
 
-                    
-                        id: {{ $usuario->id }}
-                        <br>
-                        user: {{ $usuario->user }}
-                        <br>
-                        password {{ $usuario->password }}
-                        <br>
-                        email: {{ $usuario->email }}
-                        <br>
-                        email_verified_at:{{ $usuario->email_verified_at }}
-                        <br>
-                        
-                        <!-- name: {{ $usuario->name }}
-                        <br>
-                        lastname: {{ $usuario->lastname }}
-                        <br>
-                        dni : {{ $usuario->dni }}
-                        <br> -->
-
-                        admi : {{ $usuario->admin }}
-                        <br>
-                        professional : {{ $usuario->professional }}
-                        <br>
-                        remember_token : {{ $usuario->remember_token }}
-                        <br>
-                        created_at : {{ $usuario->created_at }}
-                        <br>
-                        updated_at : {{ $usuario->updated_at }}
+                                </div>
+                            
+                            
+                            
+                            @endif
+                        @endforeach
 
 
-                    </li>
-                    <br>
-                @endif
-            @endforeach
-        </ul>
-
-        
-
-    </p>
 
 
-</body>
-</html>
+                    </div> 
+                </div>    
+            </div>
+        </div>
+    </div>
+</div>   
+@endsection

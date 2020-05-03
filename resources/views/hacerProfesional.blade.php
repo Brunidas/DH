@@ -1,58 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar datos para profesional</title>
-</head>
-<body>
-    <ul>
-        @foreach( $errors->all() as $error )
-        <li>
-            {{ $error }}
-        </li>
-        @endforeach
-    </ul>
-    
-    
-    <form action="/agregarProfesional" method="post" >
-        {{ csrf_field() }}
-        <br>
-        <div class="">
-            <input type="hidden" name="id" id="" value="{{ $id }}">
+@extends('layouts.app')
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card"> 
+                <div class="card-header bg-info text-white"><h3>Nuevo Profesional</h3></div>
+                    <div class="card-body">
 
-            <label for="enrollment">Matricula: </label>
-            <input type="text" name="enrollment" id="" value="">
-            <br>
+                        @if( $errors->isEmpty() == FALSE )
+                            
+                            <div class="btn btn-outline-danger mb-2">
+                                @foreach( $errors->all() as $error )
+                                    {{ $error }}
+                                    <br>
+                                @endforeach
+                            </div>
+                        @endif
 
-            <label for="name">Nombre: </label>
-            <input type="text" name="name" id="" value="">
-            <br>
-
-            <label for="lastname">Apellido: </label>
-            <input type="text" name="lastname" id="" value="">
-            <br>
-
-            <label for="phone_number">Numero de telefono: </label>
-            <input type="text" name="phone_number" id="" value="">
-            <br>
+                        <form method="POST" action="/agregarProfesional">
+                            @csrf
+                            <input type="hidden" name="id" id="" value="{{ $id }}">
 
 
-            <label for="specialty">Elegir una especialidad</label>
-            <select id="specialty" name="specialty_id">
-                @foreach ( $especialidades as $especialidad)
-                <option name="specialty_id" value="{{ $especialidad->id }}">{{ $especialidad->name }}</option>
-                @endforeach
-            </select>
-            <br>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">        
+                                    <span class="input-group-text" id="basic-addon1">Matricula</span>
+                                </div>
+                                <input type="text" class="form-control" name="enrollment" value=" {{ old('enrollment') }}">
+                            </div>
 
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">        
+                                    <span class="input-group-text" id="basic-addon1">Nombre</span>
+                                </div>
+                                <input type="text" class="form-control" name="name" value=" {{ old('name') }}">
+                            </div>
+
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">        
+                                    <span class="input-group-text" id="basic-addon1">Apellido</span>
+                                </div>
+                                <input type="text" class="form-control" name="lastname" value=" {{ old('lastname') }}">
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">        
+                                    <span class="input-group-text" id="basic-addon1">Telefono</span>
+                                </div>
+                                <input type="text" class="form-control" name="phone_number" value=" {{ old('phone_number') }}">
+                            </div>
+
+
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">Especilidad</label>
+                                </div>
+                                <select name="specialty_id" class="custom-select" id="inputGroupSelect01">
+                                    @foreach ( $especialidades as $especialidad)
+                                        <option name="specialty_id" value="{{ $especialidad->id }}">{{ $especialidad->name }}</option>
+                                    @endforeach
+
+                                </select>
+                            </div>
+
+
+
+
+
+                        <div class="">
+                            <input class="btn btn-success " type="submit" value="Agregar">
+                        </div>
+
+
+
+                        </form>
+
+                    </div> 
+                </div>    
+            </div>
         </div>
+    </div>
+</div>   
+@endsection
 
-        <div class="">
-            <input type="submit" value="Guardar Cambios">
-        </div>
-    </form>
-    
-
-</body>
-</html>
