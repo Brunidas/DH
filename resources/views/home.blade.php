@@ -29,7 +29,7 @@
                 @endif
                 
 
-                @if( auth()->user()->admin or auth()->user()->professional )
+                @if( auth()->user()->professional )
 
                     <div class="card-header bg-success text-white">Acciones de profesional:</div>
         
