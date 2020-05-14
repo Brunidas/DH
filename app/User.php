@@ -8,6 +8,22 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    public $guarded = [];
+    
+
+    public function admin(){
+        return $this->hasOne('App\Admin');
+    }
+    
+    public function professional(){
+        return $this->hasOne('App\Professional',"user_id");
+    }
+
+
+    public function patients(){
+        return $this->hasMany('App\Patient','user_id');
+    }
+
     use Notifiable;
 
     /**
@@ -15,9 +31,18 @@ class User extends Authenticatable
      *
      * @var array
      */
+
+
+
+    // protected $fillable = [
+    //     'name', 'email', 'password','user','lastname','dni'
+    // ];
+
     protected $fillable = [
-        'name', 'email', 'password','user'
+        'email', 'password','user'
     ];
+
+
 
     /**
      * The attributes that should be hidden for arrays.

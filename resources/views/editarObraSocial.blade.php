@@ -1,7 +1,7 @@
 @extends("plantilla")
 
 @section("titulo")
-  Editar Especialidad
+  Editar Obra Social
 @endsection
 
 @section("principal")
@@ -9,12 +9,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header bg-info text-white"><h3>{{ $especialidad["name"] }}</h3></div>
+                <div class="card-header bg-info text-white"><h3>{{ $obraSocial["name"] }}</h3></div>
                     <div class="card-body">
 
 
 
-                        <form action="editarEspecialidad" method="post" >
+                        <form action="editarObraSocial" method="post" >
                             {{ csrf_field() }}
 
                             <div class="input-group mb-3">
@@ -26,9 +26,8 @@
 
                                 </div>
 
-                                <!-- <input type="text" name="name" id="" value=""> -->
                                 <input type="text" class="form-control" name="name">
-                                <input type="hidden" name="id" id="" value="{{ $especialidad['id'] }}">
+                                <input type="hidden" name="id" id="" value="{{ $obraSocial['id'] }}">
 
                             </div>
 

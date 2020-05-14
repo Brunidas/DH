@@ -15,15 +15,19 @@ class CreateMeetingsTable extends Migration
     {
         Schema::create('meetings', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->dateTime('date');
 
             $table->unsignedBigInteger('professionals_id');
             $table->foreign('professionals_id')->references('id')->on('professionals');
 
-            $table->unsignedBigInteger('patients_id');
-            $table->foreign('patients_id')->references('id')->on('patients');
+            $table->unsignedBigInteger('patients_id')->nullable();
+            $table->foreign('patients_id')->references('id')->on('patients')->nullable();
 
-            
+            $table->unsignedBigInteger('dates_id');
+            $table->foreign('dates_id')->references('id')->on('dates');
+
+            $table->unsignedBigInteger('hours_id');
+            $table->foreign('hours_id')->references('id')->on('hours');
+
             $table->timestamps();
         });
     }

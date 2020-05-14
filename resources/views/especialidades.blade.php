@@ -1,94 +1,63 @@
 @extends("plantilla")
-<?php
-    session_start();
 
-    $cantidadEspecialidades = 10;
-
-?>
 @section("titulo")
   Especialidades
 @endsection
 
 @section("principal")
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
 
-  <div class="container p-4 p-md-5">
-      <div class="_bf_titulos-mobile row mb-4 ">
-          <div class="col-12 d-flex justify-content-center">
-              <h2 class="h1">Cartilla De</h2>
-          </div>
+                    <div class="card-header bg-info text-white"><h3>Especialidades:</h3></div>
 
-          <div class="col-12 d-flex justify-content-center">
-              <h2 class="h1">Especialidades</h2>
-          </div>
+                    <div class="card-body">
 
-      </div>
+                        <form action="agregarEspecialidad" method="get">
+                            {{ csrf_field() }}
+                            <input class="btn btn-success mb-2" type="submit" value="Agregar Especialidad">
+                        </form>
 
+                        <ul class="list-group">
+                            @foreach( $especialidades as $especiliadad)
+                            <li class="list-group-item" >
+                                <h5>
+                                    {{ $especiliadad->name }}
+                                </h5>
 
-      <div class="_bf_titulos mt-5 mb-5">
-          <h2>Cartilla De</h2>
-          <h1 class="display-1 ">Especialidades</h1>
-      </div>
+                                <form class="d-inline" action="borrarEspecialidad" method="post">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="id" value= "{{ $especiliadad->id }}" >
+                                    <input class="btn btn-danger"type="submit" value="Borrar">
+                                </form>
 
-      <hr>
+                                <form  class="d-inline" action="editarEspecialidad/{{ $especiliadad->id }}" method="get">
+                                    {{ csrf_field() }}
+                                    <input class="btn btn-primary" type="submit" value="Editar">
+                                </form>
 
-
-
-
-
-      <div class="row">
-
-          <?php for($i=1;$i<=$cantidadEspecialidades;$i++): ?>
-
-              <div class="col-12 d-flex justify-content-center col-sm-6 col-md-4 mb-3">
-                  <button class="_bf_especialidad pt-3 pb-3 " type="submit" id="especialidad<?=$i?>">
-                      Especialidad <?=$i;?>
-                  </button>
-              </div>
-
-
-
-          <?php endfor; ?>
-
-
-      </div>
+                            </li>
+                            <br>
+                            @endforeach
+                        </ul>
 
 
 
 
-  </div>
-
-
-    <p>
-        <form action="/agregarEspecialidad" method="get">
-            {{ csrf_field() }}
-            <input type="submit" value="Agregar Especialidad">
-        </form>
-
-        <ul>
-            @foreach( $especialidades as $especiliadad)
-            <li>
-                {{ $especiliadad->name }}
-                <form action="/borrarEspecialidad" method="post">
-                    {{ csrf_field() }}
-                    <input type="hidden" name="id" value= "{{ $especiliadad->id }}" >
-                    <input type="submit" value="Borrar Especialidad">
-                </form>
+                    </div>
 
 
 
-                <form action="/editarEspecialidad/{{ $especiliadad->id }}" method="get">
-                    {{ csrf_field() }}
-                    <input type="submit" value="Editar Especialidad">
-                </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            </li>
-            <br>
-            @endforeach
-        </ul>
+
+
 
 
 
     </p>
-
-
 @endsection

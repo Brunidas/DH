@@ -72,5 +72,4 @@ class SpecialtiesController extends Controller
         return redirect("/especialidades");
     }
 
-
 }

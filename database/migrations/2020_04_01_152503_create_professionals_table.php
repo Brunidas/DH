@@ -15,14 +15,22 @@ class CreateProfessionalsTable extends Migration
     {
         Schema::create('professionals', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('enrollment');
+            $table->bigInteger('enrollment');
+
+            $table->string('name');
+            $table->string('lastname')->nullable();
+            $table->bigInteger('phone_number');  
 
             $table->unsignedBigInteger('specialties_id');
             $table->foreign('specialties_id')->references('id')->on('specialties');
 
-            $table->unsignedBigInteger('users_id');
-            $table->foreign('users_id')->references('id')->on('users');
+            // $table->foreign('user_id')->references('id')->on('users');
+            // $table->integer('user_id')->unsigned();
+            // $table->primary('user_id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
+            
             $table->timestamps();
         });
     }

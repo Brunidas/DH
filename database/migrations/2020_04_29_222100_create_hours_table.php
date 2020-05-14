@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBeneficiariesTable extends Migration
+class CreateHoursTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateBeneficiariesTable extends Migration
      */
     public function up()
     {
-        Schema::create('beneficiaries', function (Blueprint $table) {
+        Schema::create('hours', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->unsignedBigInteger('patients_id');
-            $table->foreign('patients_id')->references('id')->on('patients');
-
-            $table->unsignedBigInteger('patients_id1');
-            $table->foreign('patients_id1')->references('id')->on('patients');
+            $table->time("time");
 
             $table->timestamps();
         });
@@ -33,6 +29,6 @@ class CreateBeneficiariesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('beneficiaries');
+        Schema::dropIfExists('hours');
     }
 }

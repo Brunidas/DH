@@ -1,65 +1,58 @@
 @extends("plantilla")
-<?php
-    session_start();
 
-    $cantidadObrasSociales = 10;
-
-?>
 @section("titulo")
   Obras Sociales
 @endsection
 
 @section("principal")
-
-  <div class="container p-4 p-md-5">
-      <div class="_bf_titulos-mobile row mb-4 ">
-          <div class="col-12 d-flex justify-content-center">
-              <h2 class="h1">Obras</h2>
-          </div>
-
-          <div class="col-12 d-flex justify-content-center">
-              <h2 class="h1">Sociales</h2>
-          </div>
-
-      </div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-info text-white"><h3>Obras Sociales</h3></div>
+                    <div class="card-body">
 
 
-      <div class="_bf_titulos mt-5 mb-5">
-          <h2>Obras</h2>
-          <h1 class="display-1 ">Sociales</h1>
-      </div>
+                        <form action="/agregarObraSocial" method="get">
+                            {{ csrf_field() }}
+                            <input class="btn btn-success mb-2" type="submit" value="Agregar Obra Social">
+                        </form>
 
-      <hr>
+    $cantidadObrasSociales = 10;
 
+                        <ul class="list-group">
+                            @foreach( $obrasSociales as $obrasSocial )
+                            <li class="list-group-item" >
+                                <h5>
+                                    {{ $obrasSocial->name }}
+                                </h5>
 
-
-
-
-      <div class="row">
-
-          <?php for($i=1;$i<=$cantidadObrasSociales;$i++): ?>
-
-              <div class="col-12 d-flex justify-content-center col-sm-6 col-md-4 mb-3">
-                  <button class="_bf_especialidad pt-3 pb-3 " type="submit" id="obraSocial<?=$i?>">
-                      Obra Social <?=$i;?>
-                  </button>
-              </div>
-
+                                <form class="d-inline" action="borrarObraSocial" method="post">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="id" value= "{{ $obrasSocial->id }}" >
+                                    <input class="btn btn-danger"type="submit" value="Borrar">
+                                </form>
 
 
+                                <form  class="d-inline" action="editarObraSocial/{{ $obrasSocial->id }}" method="get">
+                                    {{ csrf_field() }}
+                                    <input class="btn btn-primary" type="submit" value="Editar">
+                                </form>
 
-
-          <?php endfor; ?>
-
-
-      </div>
+                            </li>
+                            <br>
+                            @endforeach
+                        </ul>
 
 
 
 
-  </div>
-
-
-
-
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
+
+      </div>
