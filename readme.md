@@ -37,6 +37,7 @@ php artisan migrate
 
 Como resultado deberia aparencer algo como esto
 <img src="migrate.png"></img>
+\
 Luego se corre el comando:
 
 ```markdown
